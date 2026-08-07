@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
@@ -9,16 +9,31 @@
       content="Premium dark-mode portfolio for Shivam Kumar Jha — UI/UX designer and frontend developer."
     />
     <meta name="theme-color" content="#0B0F19" />
-    <meta property="og:title" content="Shivam Kumar Jha | UI/UX Designer & Frontend Developer" />
-    <meta property="og:description" content="Premium dark-mode portfolio for Shivam Kumar Jha — UI/UX designer and frontend developer." />
+    <meta
+      property="og:title"
+      content="Shivam Kumar Jha | UI/UX Designer & Frontend Developer"
+    />
+    <meta
+      property="og:description"
+      content="Premium dark-mode portfolio for Shivam Kumar Jha — UI/UX designer and frontend developer."
+    />
     <meta property="og:type" content="website" />
     <meta property="og:image" content="assets/preview.png" />
-    <meta property="og:image:alt" content="Shivam Kumar Jha portfolio preview" />
+    <meta
+      property="og:image:alt"
+      content="Shivam Kumar Jha portfolio preview"
+    />
     <meta property="og:image:width" content="1200" />
     <meta property="og:image:height" content="630" />
     <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:title" content="Shivam Kumar Jha | UI/UX Designer & Frontend Developer" />
-    <meta name="twitter:description" content="Premium dark-mode portfolio for Shivam Kumar Jha — UI/UX designer and frontend developer." />
+    <meta
+      name="twitter:title"
+      content="Shivam Kumar Jha | UI/UX Designer & Frontend Developer"
+    />
+    <meta
+      name="twitter:description"
+      content="Premium dark-mode portfolio for Shivam Kumar Jha — UI/UX designer and frontend developer."
+    />
     <meta name="twitter:image" content="assets/preview.png" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -26,21 +41,31 @@
       href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;700&display=swap"
       rel="stylesheet"
     />
-    
+
     <!-- Cloudflare Analytics -->
-    <script type="module" src="https://static.cloudflareinsights.com/beacon.min.js/v4513226cdae34746b4dedf0b4dfa099e1781791509496" integrity="sha512-ZE9pZaUXND66v380QUtch/5sE9tPFh2zg45pR2PB0CVkCtOREv2AJKkSidISWkysEuQ0EH8faUU5du78bx87UQ==" data-cf-beacon='{"version":"2024.11.0","token":"1080d4faaf6b41c3a89f8597b3f51f92"}' crossorigin="anonymous"></script>
+    <script
+      type="module"
+      src="https://static.cloudflareinsights.com/beacon.min.js/v4513226cdae34746b4dedf0b4dfa099e1781791509496"
+      integrity="sha512-ZE9pZaUXND66v380QUtch/5sE9tPFh2zg45pR2PB0CVkCtOREv2AJKkSidISWkysEuQ0EH8faUU5du78bx87UQ=="
+      data-cf-beacon='{"version":"2024.11.0","token":"1080d4faaf6b41c3a89f8597b3f51f92"}'
+      crossorigin="anonymous"
+    ></script>
 
     <!-- Anti-FOUC: apply saved theme before render -->
     <script>
-      (function() {
+      (function () {
         try {
-          var t = localStorage.getItem('theme');
-          if (t === 'light') document.documentElement.setAttribute('data-theme', 'light');
+          var t = localStorage.getItem("theme");
+          if (t === "light")
+            document.documentElement.setAttribute("data-theme", "light");
         } catch (e) {}
       })();
     </script>
-    
+
     <style>
+      /* =============================
+         Theme variables
+         ============================= */
       :root {
         --bg: #0b0f19;
         --bg-soft: #111827;
@@ -54,10 +79,10 @@
         --shadow: 0 30px 70px rgba(0, 0, 0, 0.35);
         --nav-bg: rgba(11, 15, 25, 0.55);
         --hero-content-bg: rgba(17, 24, 39, 0.55);
-        --grid-dot: rgba(255,255,255,0.06);
-        --element-bg: rgba(255,255,255,0.06);
-        --element-border: rgba(255,255,255,0.12);
-        --input-bg: rgba(255,255,255,0.05);
+        --grid-dot: rgba(255, 255, 255, 0.06);
+        --element-bg: rgba(255, 255, 255, 0.06);
+        --element-border: rgba(255, 255, 255, 0.12);
+        --input-bg: rgba(255, 255, 255, 0.05);
         --label-bg: rgba(8, 10, 18, 0.75);
         --mobile-menu-bg: rgba(8, 10, 18, 0.98);
         --loader-bg: linear-gradient(135deg, #0b0f19, #111827);
@@ -82,13 +107,17 @@
         --shadow: 0 30px 70px rgba(0, 0, 0, 0.1);
         --nav-bg: rgba(255, 255, 255, 0.75);
         --hero-content-bg: rgba(255, 255, 255, 0.65);
-        --grid-dot: rgba(0,0,0,0.04);
+        --grid-dot: rgba(0, 0, 0, 0.04);
         --element-bg: rgba(0, 0, 0, 0.035);
         --element-border: rgba(0, 0, 0, 0.1);
         --input-bg: rgba(0, 0, 0, 0.03);
         --label-bg: rgba(255, 255, 255, 0.8);
         --mobile-menu-bg: rgba(255, 255, 255, 0.98);
-        --loader-bg: linear-gradient(135deg, rgba(238,241,246,1), rgba(226,230,238,0.96));
+        --loader-bg: linear-gradient(
+          135deg,
+          rgba(238, 241, 246, 1),
+          rgba(226, 230, 238, 0.96)
+        );
         --typing-color: #006699;
         --label-color: #1a1f36;
         --social-color: #3a4258;
@@ -97,6 +126,9 @@
         --marquee-color: #3a4258;
       }
 
+      /* =============================
+         Global reset & base styles
+         ============================= */
       * {
         box-sizing: border-box;
         margin: 0;
@@ -112,7 +144,9 @@
         background: var(--bg);
         color: var(--text);
         overflow-x: hidden;
-        transition: background 0.4s ease, color 0.4s ease;
+        transition:
+          background 0.4s ease,
+          color 0.4s ease;
       }
 
       body::before {
@@ -121,7 +155,11 @@
         inset: 0;
         background-image: radial-gradient(var(--grid-dot) 1px, transparent 1px);
         background-size: 22px 22px;
-        mask-image: linear-gradient(to bottom, rgba(0,0,0,0.65), transparent);
+        mask-image: linear-gradient(
+          to bottom,
+          rgba(0, 0, 0, 0.65),
+          transparent
+        );
         pointer-events: none;
         z-index: 0;
       }
@@ -146,7 +184,9 @@
 
       /* 3D Realistic Functional Cursor */
       @media (pointer: fine) {
-        * { cursor: none !important; }
+        * {
+          cursor: none !important;
+        }
       }
 
       .cursor-3d {
@@ -160,7 +200,9 @@
         will-change: transform;
       }
 
-      .cursor-3d.visible { opacity: 1; }
+      .cursor-3d.visible {
+        opacity: 1;
+      }
 
       .cursor-core {
         position: fixed;
@@ -169,7 +211,12 @@
         width: 14px;
         height: 14px;
         border-radius: 50%;
-        background: radial-gradient(circle at 35% 30%, #ffffff 0%, var(--accent) 55%, #1a7a9c 100%);
+        background: radial-gradient(
+          circle at 35% 30%,
+          #ffffff 0%,
+          var(--accent) 55%,
+          #1a7a9c 100%
+        );
         box-shadow:
           0 0 10px var(--accent),
           0 0 20px rgba(91, 220, 255, 0.5),
@@ -177,7 +224,10 @@
           inset 0 1px 3px rgba(255, 255, 255, 0.9),
           inset -1px -2px 3px rgba(0, 0, 0, 0.25);
         transform: translate(-50%, -50%);
-        transition: width 0.2s ease, height 0.2s ease, background 0.2s ease;
+        transition:
+          width 0.2s ease,
+          height 0.2s ease,
+          background 0.2s ease;
         z-index: 10001;
         will-change: transform;
       }
@@ -190,10 +240,20 @@
         height: 42px;
         border-radius: 50%;
         border: 1.5px solid rgba(91, 220, 255, 0.55);
-        background: radial-gradient(circle, rgba(91, 220, 255, 0.06), transparent 70%);
-        box-shadow: 0 0 16px rgba(91, 220, 255, 0.18), inset 0 0 8px rgba(91, 220, 255, 0.1);
+        background: radial-gradient(
+          circle,
+          rgba(91, 220, 255, 0.06),
+          transparent 70%
+        );
+        box-shadow:
+          0 0 16px rgba(91, 220, 255, 0.18),
+          inset 0 0 8px rgba(91, 220, 255, 0.1);
         transform: translate(-50%, -50%);
-        transition: width 0.3s ease, height 0.3s ease, border-color 0.3s ease, background 0.3s ease;
+        transition:
+          width 0.3s ease,
+          height 0.3s ease,
+          border-color 0.3s ease,
+          background 0.3s ease;
         z-index: 10000;
         will-change: transform;
       }
@@ -205,10 +265,16 @@
         width: 90px;
         height: 90px;
         border-radius: 50%;
-        background: radial-gradient(circle, rgba(159, 107, 255, 0.1), transparent 60%);
+        background: radial-gradient(
+          circle,
+          rgba(159, 107, 255, 0.1),
+          transparent 60%
+        );
         filter: blur(12px);
         transform: translate(-50%, -50%);
-        transition: width 0.4s ease, height 0.4s ease;
+        transition:
+          width 0.4s ease,
+          height 0.4s ease;
         z-index: 9998;
         will-change: transform;
       }
@@ -222,7 +288,11 @@
         width: 56px;
         height: 56px;
         border-color: rgba(159, 107, 255, 0.7);
-        background: radial-gradient(circle, rgba(159, 107, 255, 0.12), transparent 70%);
+        background: radial-gradient(
+          circle,
+          rgba(159, 107, 255, 0.12),
+          transparent 70%
+        );
       }
 
       .cursor-3d.click .cursor-core {
@@ -237,7 +307,12 @@
       }
 
       @media (pointer: coarse) {
-        .cursor-3d, .cursor-core, .cursor-ring, .cursor-trail { display: none; }
+        .cursor-3d,
+        .cursor-core,
+        .cursor-ring,
+        .cursor-trail {
+          display: none;
+        }
       }
 
       .scroll-progress {
@@ -257,7 +332,9 @@
         display: grid;
         place-items: center;
         z-index: 80;
-        transition: opacity 0.8s ease, visibility 0.8s ease;
+        transition:
+          opacity 0.8s ease,
+          visibility 0.8s ease;
       }
 
       .loader.hidden {
@@ -278,13 +355,20 @@
         content: "";
         position: absolute;
         inset: 0;
-        background: linear-gradient(120deg, transparent, rgba(91, 220, 255, 0.18), transparent);
+        background: linear-gradient(
+          120deg,
+          transparent,
+          rgba(91, 220, 255, 0.18),
+          transparent
+        );
         transform: translateX(-100%);
         animation: shimmer 1.2s ease-in-out infinite;
       }
 
       @keyframes shimmer {
-        100% { transform: translateX(100%); }
+        100% {
+          transform: translateX(100%);
+        }
       }
 
       .loader-logo {
@@ -305,8 +389,13 @@
       }
 
       @keyframes pulse {
-        0%, 100% { transform: translateY(0) scale(1); }
-        50% { transform: translateY(-4px) scale(1.04); }
+        0%,
+        100% {
+          transform: translateY(0) scale(1);
+        }
+        50% {
+          transform: translateY(-4px) scale(1.04);
+        }
       }
 
       .loader h3 {
@@ -413,9 +502,15 @@
         transform: rotate(20deg);
       }
 
-      .theme-icon-moon { display: none; }
-      [data-theme="light"] .theme-icon-sun { display: none; }
-      [data-theme="light"] .theme-icon-moon { display: inline; }
+      .theme-icon-moon {
+        display: none;
+      }
+      [data-theme="light"] .theme-icon-sun {
+        display: none;
+      }
+      [data-theme="light"] .theme-icon-moon {
+        display: inline;
+      }
 
       main {
         position: relative;
@@ -433,22 +528,23 @@
         background: var(--bg);
       }
 
-      /* Animated 3D Background using Three.js */
-      #canvas-container {
-        position: absolute;
-        inset: 0;
+      /* Spline background embed container for right-side layout */
+      #spline-container {
+        position: relative;
         width: 100%;
+        min-height: 520px;
         height: 100%;
-        z-index: 0;
+        overflow: hidden;
       }
 
-      #canvas-container canvas {
+      #spline-container spline-viewer,
+      #spline-container iframe {
         display: block;
         width: 100% !important;
-        height: 100% !important;
+        height: 76vh !important;
       }
 
-      /* Hero Overlay Content - On Top of 3D */
+      /* Hero Overlay Content */
       .hero-overlay {
         position: relative;
         z-index: 10;
@@ -457,7 +553,7 @@
         margin: 0 auto;
         padding: 6rem 2rem 4rem;
         display: grid;
-        grid-template-columns: 1fr 1fr;
+        grid-template-columns: 1.05fr 0.95fr;
         gap: 2rem;
         align-items: center;
         min-height: 100vh;
@@ -478,23 +574,14 @@
         align-items: center;
       }
 
-      .hero-avatar {
-        width: 200px;
-        height: 200px;
-        border-radius: 50%;
-        background: linear-gradient(135deg, var(--accent), var(--accent-2));
-        display: grid;
-        place-items: center;
-        font-size: 4rem;
-        font-weight: 700;
-        color: white;
-        box-shadow: 0 0 60px rgba(91, 220, 255, 0.2);
-        animation: float 4s ease-in-out infinite;
-      }
-
       @keyframes float {
-        0%, 100% { transform: translateY(0); }
-        50% { transform: translateY(-20px); }
+        0%,
+        100% {
+          transform: translateY(0);
+        }
+        50% {
+          transform: translateY(-20px);
+        }
       }
 
       .eyebrow {
@@ -559,8 +646,13 @@
       }
 
       @keyframes blink {
-        0%, 100% { opacity: 1; }
-        50% { opacity: 0; }
+        0%,
+        100% {
+          opacity: 1;
+        }
+        50% {
+          opacity: 0;
+        }
       }
 
       .hero-actions {
@@ -579,7 +671,9 @@
         padding: 0.95rem 1.3rem;
         border-radius: 999px;
         font-weight: 600;
-        transition: transform 0.2s ease, box-shadow 0.2s ease;
+        transition:
+          transform 0.2s ease,
+          box-shadow 0.2s ease;
         cursor: pointer;
         border: 1px solid transparent;
         overflow: hidden;
@@ -615,7 +709,9 @@
         background: var(--element-bg);
         border: 1px solid var(--element-border);
         color: var(--social-color);
-        transition: transform 0.2s ease, border-color 0.2s ease;
+        transition:
+          transform 0.2s ease,
+          border-color 0.2s ease;
       }
 
       .social-pill:hover {
@@ -660,8 +756,14 @@
       }
 
       @keyframes wheel {
-        0% { transform: translateX(-50%) translateY(0); opacity: 1; }
-        100% { transform: translateX(-50%) translateY(10px); opacity: 0; }
+        0% {
+          transform: translateX(-50%) translateY(0);
+          opacity: 1;
+        }
+        100% {
+          transform: translateX(-50%) translateY(10px);
+          opacity: 0;
+        }
       }
 
       /* Other Sections */
@@ -760,12 +862,14 @@
         flex-direction: column;
         gap: 0.8rem;
         min-height: 160px;
-        transition: transform 0.22s ease, border-color 0.22s ease;
+        transition:
+          transform 0.22s ease,
+          border-color 0.22s ease;
       }
 
       .skill-card:hover {
         transform: translateY(-4px);
-        border-color: rgba(91,220,255,0.3);
+        border-color: rgba(91, 220, 255, 0.3);
       }
 
       .skill-card h3 {
@@ -783,7 +887,11 @@
         border-radius: 14px;
         display: grid;
         place-items: center;
-        background: linear-gradient(135deg, rgba(91,220,255,0.16), rgba(159,107,255,0.16));
+        background: linear-gradient(
+          135deg,
+          rgba(91, 220, 255, 0.16),
+          rgba(159, 107, 255, 0.16)
+        );
         color: white;
         font-size: 1rem;
       }
@@ -852,8 +960,12 @@
       }
 
       @keyframes scroll {
-        from { transform: translateX(0); }
-        to { transform: translateX(-50%); }
+        from {
+          transform: translateX(0);
+        }
+        to {
+          transform: translateX(-50%);
+        }
       }
 
       .projects-grid {
@@ -865,7 +977,9 @@
       .project-card {
         position: relative;
         overflow: hidden;
-        transition: transform 0.25s ease, box-shadow 0.25s ease;
+        transition:
+          transform 0.25s ease,
+          box-shadow 0.25s ease;
         min-height: 290px;
       }
 
@@ -880,7 +994,11 @@
         margin-bottom: 1rem;
         position: relative;
         overflow: hidden;
-        background: linear-gradient(135deg, rgba(255,255,255,0.14), rgba(255,255,255,0.03));
+        background: linear-gradient(
+          135deg,
+          rgba(255, 255, 255, 0.14),
+          rgba(255, 255, 255, 0.03)
+        );
       }
 
       .project-visual iframe {
@@ -906,12 +1024,48 @@
         text-transform: uppercase;
       }
 
-      .project-card:nth-child(1) .project-visual { background: linear-gradient(135deg, rgba(91,220,255,0.2), rgba(159,107,255,0.3)); }
-      .project-card:nth-child(2) .project-visual { background: linear-gradient(135deg, rgba(34,211,238,0.2), rgba(16,185,129,0.2)); }
-      .project-card:nth-child(3) .project-visual { background: linear-gradient(135deg, rgba(248,113,113,0.2), rgba(249,115,22,0.2)); }
-      .project-card:nth-child(4) .project-visual { background: linear-gradient(135deg, rgba(191,219,254,0.16), rgba(129,140,248,0.25)); }
-      .project-card:nth-child(5) .project-visual { background: linear-gradient(135deg, rgba(132,204,22,0.18), rgba(255,255,255,0.06)); }
-      .project-card:nth-child(6) .project-visual { background: linear-gradient(135deg, rgba(255,255,255,0.12), rgba(255,138,179,0.2)); }
+      .project-card:nth-child(1) .project-visual {
+        background: linear-gradient(
+          135deg,
+          rgba(91, 220, 255, 0.2),
+          rgba(159, 107, 255, 0.3)
+        );
+      }
+      .project-card:nth-child(2) .project-visual {
+        background: linear-gradient(
+          135deg,
+          rgba(34, 211, 238, 0.2),
+          rgba(16, 185, 129, 0.2)
+        );
+      }
+      .project-card:nth-child(3) .project-visual {
+        background: linear-gradient(
+          135deg,
+          rgba(248, 113, 113, 0.2),
+          rgba(249, 115, 22, 0.2)
+        );
+      }
+      .project-card:nth-child(4) .project-visual {
+        background: linear-gradient(
+          135deg,
+          rgba(191, 219, 254, 0.16),
+          rgba(129, 140, 248, 0.25)
+        );
+      }
+      .project-card:nth-child(5) .project-visual {
+        background: linear-gradient(
+          135deg,
+          rgba(132, 204, 22, 0.18),
+          rgba(255, 255, 255, 0.06)
+        );
+      }
+      .project-card:nth-child(6) .project-visual {
+        background: linear-gradient(
+          135deg,
+          rgba(255, 255, 255, 0.12),
+          rgba(255, 138, 179, 0.2)
+        );
+      }
 
       .project-card h3 {
         margin-bottom: 0.4rem;
@@ -1012,12 +1166,14 @@
         display: flex;
         flex-direction: column;
         justify-content: space-between;
-        transition: transform 0.2s ease, border-color 0.2s ease;
+        transition:
+          transform 0.2s ease,
+          border-color 0.2s ease;
       }
 
       .cert-card:hover {
         transform: translateY(-4px);
-        border-color: rgba(91,220,255,0.22);
+        border-color: rgba(91, 220, 255, 0.22);
       }
 
       .cert-card .meta {
@@ -1041,8 +1197,13 @@
         margin-bottom: 1rem;
       }
 
-      .person { font-weight: 600; }
-      .role { color: var(--muted); font-size: 0.92rem; }
+      .person {
+        font-weight: 600;
+      }
+      .role {
+        color: var(--muted);
+        font-size: 0.92rem;
+      }
 
       .faq-list {
         display: grid;
@@ -1055,7 +1216,7 @@
       }
 
       .faq-card.active {
-        border-color: rgba(91,220,255,0.26);
+        border-color: rgba(91, 220, 255, 0.26);
       }
 
       .faq-q {
@@ -1157,6 +1318,7 @@
       @media (max-width: 960px) {
         .hero-overlay {
           grid-template-columns: 1fr;
+          grid-template-rows: auto auto;
           padding: 5rem 1.5rem 3rem;
         }
 
@@ -1166,7 +1328,12 @@
         }
 
         .hero-right {
-          display: none;
+          width: 100%;
+          justify-content: center;
+        }
+
+        #spline-container {
+          min-height: 360px;
         }
 
         .about-grid,
@@ -1267,8 +1434,10 @@
         }
       }
     </style>
+      <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
   </head>
   <body>
+    <!-- LOADER -->
     <div class="loader">
       <div class="loader-card glass">
         <div class="loader-logo">SK</div>
@@ -1284,7 +1453,8 @@
     </div>
     <div class="scroll-progress"></div>
 
-    <header class="site-header">
+    <!-- HEADER -->
+    <header data-aos="fade-right" class="site-header">
       <nav class="nav glass">
         <a class="logo" href="#home">
           <span class="logo-mark">SK</span>
@@ -1295,13 +1465,17 @@
           <span></span>
           <span></span>
         </button>
-        <div class="nav-links">
+        <div data-aos="fade-right"class="nav-links">
           <a href="#about">About</a>
           <a href="#skills">Skills</a>
           <a href="#projects">Projects</a>
           <a href="#services">Services</a>
           <a href="#contact">Contact</a>
-          <button id="theme-toggle" class="theme-toggle" aria-label="Toggle dark/light theme">
+          <button
+            id="theme-toggle"
+            class="theme-toggle"
+            aria-label="Toggle dark/light theme"
+          >
             <span class="theme-icon-sun">☀</span>
             <span class="theme-icon-moon">☾</span>
           </button>
@@ -1309,14 +1483,12 @@
       </nav>
     </header>
 
-    <main>
-      <!-- HERO SECTION WITH 3D BACKGROUND -->
+    <!-- MAIN CONTENT -->
+    <main >
+      <!-- HERO SECTION WITH SPLINE BACKGROUND -->
       <section id="home" class="hero">
-        <!-- 3D Canvas Container -->
-        <div id="canvas-container"></div>
-
         <!-- Overlay Content -->
-        <div class="hero-overlay">
+        <div data-aos="fade-up" data-aos-delay="500" class="hero-overlay">
           <div class="hero-content reveal">
             <div class="eyebrow">Let's create something amazing together</div>
             <h1>Shivam <span>Kumar Jha</span></h1>
@@ -1324,8 +1496,9 @@
               <span class="typed-text"></span><span class="cursor">|</span>
             </div>
             <p class="subline">
-              I craft high-end digital experiences that blend elegant UI systems, cinematic storytelling,
-              and performant frontend engineering.
+              I craft high-end digital experiences that blend elegant UI
+              systems, cinematic storytelling, and performant frontend
+              engineering.
             </p>
             <div class="hero-actions">
               <a class="btn btn-primary" href="resume web.jpg" download>
@@ -1334,14 +1507,33 @@
               <a class="btn btn-secondary" href="#contact">Hire Me</a>
             </div>
             <div class="socials">
-              <a class="social-pill" href="https://www.linkedin.com/in/shivam-kumar-jha-b407b33a6" target="_blank" aria-label="LinkedIn">in</a>
-              <a class="social-pill" href="mailto:skj30890@gmail.com" aria-label="Email">✉</a>
-              <a class="social-pill" href="https://wa.me/918709065302" target="_blank" aria-label="WhatsApp">wa</a>
+              <a
+                class="social-pill"
+                href="https://www.linkedin.com/in/shivam-kumar-jha-b407b33a6"
+                target="_blank"
+                aria-label="LinkedIn"
+                >in</a
+              >
+              <a
+                class="social-pill"
+                href="mailto:skj30890@gmail.com"
+                aria-label="Email"
+                >✉</a
+              >
+              <a
+                class="social-pill"
+                href="https://wa.me/918709065302"
+                target="_blank"
+                aria-label="WhatsApp"
+                >wa</a
+              >
             </div>
           </div>
           <div class="hero-right">
-            <div class="hero-avatar">
-              <img src="skj.png" alt="Shivam Kumar Jha" style="width:100%;height:100%;border-radius:50%;object-fit:cover;" />
+            <div id="spline-container">
+              <spline-viewer
+                url="https://prod.spline.design/jumROJBrDKq5u8PH/scene.splinecode"
+              ></spline-viewer>
             </div>
           </div>
         </div>
@@ -1352,22 +1544,26 @@
         </div>
       </section>
 
+      <!-- ABOUT SECTION -->
       <section id="about" class="reveal">
         <div class="section-heading">
           <h2>About me</h2>
           <p>
-            I design premium interfaces and build them into fast, thoughtful products with a strong focus on clarity,
-            emotion, and conversion.
+            I design premium interfaces and build them into fast, thoughtful
+            products with a strong focus on clarity, emotion, and conversion.
           </p>
         </div>
         <div class="about-grid">
           <div class="about-card glass">
             <p>
-              I'm Shivam, a UI/UX designer and frontend developer who blends strategy, systems thinking, and motion into
-              refined digital experiences. My work centers on modern storytelling, elegant interactions, and performance-first builds.
+              I'm Shivam, a UI/UX designer and frontend developer who blends
+              strategy, systems thinking, and motion into refined digital
+              experiences. My work centers on modern storytelling, elegant
+              interactions, and performance-first builds.
             </p>
             <p>
-              From startups to product-led brands, I create polished websites and product flows that feel premium from the first click.
+              From startups to product-led brands, I create polished websites
+              and product flows that feel premium from the first click.
             </p>
             <div class="badge-row">
               <span class="badge">UI/UX Design</span>
@@ -1394,31 +1590,47 @@
         </div>
       </section>
 
+      <!-- SKILLS SECTION -->
       <section id="skills" class="reveal">
         <div class="section-heading">
           <h2>Core skills</h2>
-          <p>Designing with systems and shipping with precision are the foundations of my process.</p>
+          <p>
+            Designing with systems and shipping with precision are the
+            foundations of my process.
+          </p>
         </div>
         <div class="skills-grid">
           <div class="skill-card glass">
             <div class="skill-icon">HTML</div>
             <h3>Web Foundations</h3>
-            <p>Semantic structure, accessibility, and beautiful interaction architecture.</p>
+            <p>
+              Semantic structure, accessibility, and beautiful interaction
+              architecture.
+            </p>
           </div>
           <div class="skill-card glass">
             <div class="skill-icon">CSS</div>
             <h3>Visual Systems</h3>
-            <p>Modern layouts, motion, and polished styling with performance in mind.</p>
+            <p>
+              Modern layouts, motion, and polished styling with performance in
+              mind.
+            </p>
           </div>
           <div class="skill-card glass">
             <div class="skill-icon">JS</div>
             <h3>Interactive Logic</h3>
-            <p>Animation, state, and delightful micro-interactions using JavaScript.</p>
+            <p>
+              Animation, state, and delightful micro-interactions using
+              JavaScript.
+            </p>
           </div>
           <div class="skill-card glass">
             <div class="skill-icon">R</div>
             <h3>React</h3>
-            <p>Component-driven interfaces with reusable design systems and flows.</p>
+            <p>
+              Component-driven interfaces with reusable design systems and
+              flows.
+            </p>
           </div>
           <div class="skill-card glass">
             <div class="skill-icon">TW</div>
@@ -1428,9 +1640,11 @@
           <div class="skill-card glass">
             <div class="skill-icon">F</div>
             <h3>Figma</h3>
-            <p>Design systems, prototyping, and collaborative product thinking.</p>
+            <p>
+              Design systems, prototyping, and collaborative product thinking.
+            </p>
           </div>
-           <div class="skill-card glass">
+          <div class="skill-card glass">
             <div class="skill-icon">F</div>
             <h3>Graphic Design</h3>
             <p>Visual communication and branding.</p>
@@ -1438,24 +1652,34 @@
         </div>
         <div class="progress-stack">
           <div class="progress-card">
-            <div class="progress-head"><span>UI/UX Design</span><strong>95%</strong></div>
+            <div class="progress-head">
+              <span>UI/UX Design</span><strong>95%</strong>
+            </div>
             <div class="progress-bar"><span data-width="95"></span></div>
           </div>
           <div class="progress-card">
-            <div class="progress-head"><span>Frontend Development</span><strong>92%</strong></div>
+            <div class="progress-head">
+              <span>Frontend Development</span><strong>92%</strong>
+            </div>
             <div class="progress-bar"><span data-width="92"></span></div>
           </div>
           <div class="progress-card">
-            <div class="progress-head"><span>Graphic Design</span><strong>85%</strong></div>
+            <div class="progress-head">
+              <span>Graphic Design</span><strong>85%</strong>
+            </div>
             <div class="progress-bar"><span data-width="85"></span></div>
           </div>
         </div>
       </section>
 
+      <!-- TECH STACK SECTION -->
       <section id="tech-stack" class="reveal">
         <div class="section-heading">
           <h2>Tech stack</h2>
-          <p>Modern tools and frameworks that help turn ideas into beautiful, fast digital products.</p>
+          <p>
+            Modern tools and frameworks that help turn ideas into beautiful,
+            fast digital products.
+          </p>
         </div>
         <div class="marquee glass">
           <div class="marquee-track">
@@ -1479,113 +1703,276 @@
         </div>
       </section>
 
+      <!-- PROJECTS SECTION -->
       <section id="projects" class="reveal">
         <div class="section-heading">
           <h2>Selected projects</h2>
-          <p>Recent explorations that blend storytelling, UX depth, and clean engineering.</p>
+          <p>
+            Recent explorations that blend storytelling, UX depth, and clean
+            engineering.
+          </p>
         </div>
         <div class="projects-grid">
           <article class="project-card glass">
-            <div class="project-visual"><iframe src="brand%20360.html" loading="lazy" aria-hidden="true"></iframe><span class="project-label">Brand Studio</span></div>
-            <div class="tag-row"><span class="tag">Agency</span><span class="tag">UI</span></div>
+            <div class="project-visual">
+              <iframe
+                src="brand%20360.html"
+                loading="lazy"
+                aria-hidden="true"
+              ></iframe
+              ><span class="project-label">Brand Studio</span>
+            </div>
+            <div class="tag-row">
+              <span class="tag">Agency</span><span class="tag">UI</span>
+            </div>
             <h3>Brand360 Website</h3>
-            <p>A polished agency-style landing experience with editorial storytelling and sleek digital presence.</p>
-            <div class="project-links"><a class="btn btn-secondary" href="brand%20360.html" target="_blank">Open Page</a><a class="btn btn-secondary" href="brand%20360.html" target="_blank">View Source</a></div>
+            <p>
+              A polished agency-style landing experience with editorial
+              storytelling and sleek digital presence.
+            </p>
+            <div class="project-links">
+              <a
+                class="btn btn-secondary"
+                href="brand%20360.html"
+                target="_blank"
+                >Open Page</a
+              ><a
+                class="btn btn-secondary"
+                href="brand%20360.html"
+                target="_blank"
+                >View Source</a
+              >
+            </div>
           </article>
           <article class="project-card glass">
-            <div class="project-visual"><iframe src="DriveBharat.html" loading="lazy" aria-hidden="true"></iframe><span class="project-label">Car Rental</span></div>
-            <div class="tag-row"><span class="tag">Luxury</span><span class="tag">Booking</span></div>
+            <div class="project-visual">
+              <iframe
+                src="DriveBharat.html"
+                loading="lazy"
+                aria-hidden="true"
+              ></iframe
+              ><span class="project-label">Car Rental</span>
+            </div>
+            <div class="tag-row">
+              <span class="tag">Luxury</span><span class="tag">Booking</span>
+            </div>
             <h3>DriveBharat</h3>
-            <p>A premium car rental concept with refined layout, trust cues, and smart booking flow.</p>
-            <div class="project-links"><a class="btn btn-secondary" href="DriveBharat.html" target="_blank">Open Page</a><a class="btn btn-secondary" href="DriveBharat.html" target="_blank">View Source</a></div>
+            <p>
+              A premium car rental concept with refined layout, trust cues, and
+              smart booking flow.
+            </p>
+            <div class="project-links">
+              <a
+                class="btn btn-secondary"
+                href="DriveBharat.html"
+                target="_blank"
+                >Open Page</a
+              ><a
+                class="btn btn-secondary"
+                href="DriveBharat.html"
+                target="_blank"
+                >View Source</a
+              >
+            </div>
           </article>
           <article class="project-card glass">
-            <div class="project-visual"><iframe src="velora.html" loading="lazy" aria-hidden="true"></iframe><span class="project-label">Fashion</span></div>
-            <div class="tag-row"><span class="tag">Editorial</span><span class="tag">Brand</span></div>
+            <div class="project-visual">
+              <iframe
+                src="velora.html"
+                loading="lazy"
+                aria-hidden="true"
+              ></iframe
+              ><span class="project-label">Fashion</span>
+            </div>
+            <div class="tag-row">
+              <span class="tag">Editorial</span><span class="tag">Brand</span>
+            </div>
             <h3>Velora</h3>
-            <p>A luxury fashion landing page with cinematic motion, glassmorphism, and premium storytelling.</p>
-            <div class="project-links"><a class="btn btn-secondary" href="velora.html" target="_blank">Open Page</a><a class="btn btn-secondary" href="velora.html" target="_blank">View Source</a></div>
+            <p>
+              A luxury fashion landing page with cinematic motion,
+              glassmorphism, and premium storytelling.
+            </p>
+            <div class="project-links">
+              <a class="btn btn-secondary" href="velora.html" target="_blank"
+                >Open Page</a
+              ><a class="btn btn-secondary" href="velora.html" target="_blank"
+                >View Source</a
+              >
+            </div>
           </article>
           <article class="project-card glass">
-            <div class="project-visual"><iframe src="saloon%20(1).html" loading="lazy" aria-hidden="true"></iframe><span class="project-label">Beauty</span></div>
-            <div class="tag-row"><span class="tag">Salon</span><span class="tag">Booking</span></div>
+            <div class="project-visual">
+              <iframe
+                src="saloon%20(1).html"
+                loading="lazy"
+                aria-hidden="true"
+              ></iframe
+              ><span class="project-label">Beauty</span>
+            </div>
+            <div class="tag-row">
+              <span class="tag">Salon</span><span class="tag">Booking</span>
+            </div>
             <h3>GlowUp Salon</h3>
-            <p>A modern beauty salon website focused on service presentation and effortless appointment conversion.</p>
-            <div class="project-links"><a class="btn btn-secondary" href="saloon%20(1).html" target="_blank">Open Page</a><a class="btn btn-secondary" href="saloon%20(1).html" target="_blank">View Source</a></div>
+            <p>
+              A modern beauty salon website focused on service presentation and
+              effortless appointment conversion.
+            </p>
+            <div class="project-links">
+              <a
+                class="btn btn-secondary"
+                href="saloon%20(1).html"
+                target="_blank"
+                >Open Page</a
+              ><a
+                class="btn btn-secondary"
+                href="saloon%20(1).html"
+                target="_blank"
+                >View Source</a
+              >
+            </div>
           </article>
           <article class="project-card glass">
-            <div class="project-visual"><iframe src="scroll.html" loading="lazy" aria-hidden="true"></iframe><span class="project-label">Skincare</span></div>
-            <div class="tag-row"><span class="tag">Landing</span><span class="tag">Motion</span></div>
+            <div class="project-visual">
+              <iframe
+                src="scroll.html"
+                loading="lazy"
+                aria-hidden="true"
+              ></iframe
+              ><span class="project-label">Skincare</span>
+            </div>
+            <div class="tag-row">
+              <span class="tag">Landing</span><span class="tag">Motion</span>
+            </div>
             <h3>Radiant Glow</h3>
-            <p>A clean skincare landing page with soft gradients, glowing visuals, and smooth scroll storytelling.</p>
-            <div class="project-links"><a class="btn btn-secondary" href="scroll.html" target="_blank">Open Page</a><a class="btn btn-secondary" href="scroll.html" target="_blank">View Source</a></div>
+            <p>
+              A clean skincare landing page with soft gradients, glowing
+              visuals, and smooth scroll storytelling.
+            </p>
+            <div class="project-links">
+              <a class="btn btn-secondary" href="scroll.html" target="_blank"
+                >Open Page</a
+              ><a class="btn btn-secondary" href="scroll.html" target="_blank"
+                >View Source</a
+              >
+            </div>
           </article>
           <article class="project-card glass">
-            <div class="project-visual"><iframe src="ecomerse.html" loading="lazy" aria-hidden="true"></iframe><span class="project-label">Ecommerce</span></div>
-            <div class="tag-row"><span class="tag">Store</span><span class="tag">Shopping</span></div>
+            <div class="project-visual">
+              <iframe
+                src="ecomerse.html"
+                loading="lazy"
+                aria-hidden="true"
+              ></iframe
+              ><span class="project-label">Ecommerce</span>
+            </div>
+            <div class="tag-row">
+              <span class="tag">Store</span><span class="tag">Shopping</span>
+            </div>
             <h3>Ecommerce</h3>
-            <p>A modern e-commerce platform with a focus on user experience and seamless navigation.</p>
-            <div class="project-links"><a class="btn btn-secondary" href="ecomerse.html" target="_blank">Open Page</a><a class="btn btn-secondary" href="ecomerse.html" target="_blank">View Source</a></div>
+            <p>
+              A modern e-commerce platform with a focus on user experience and
+              seamless navigation.
+            </p>
+            <div class="project-links">
+              <a class="btn btn-secondary" href="ecomerse.html" target="_blank"
+                >Open Page</a
+              ><a class="btn btn-secondary" href="ecomerse.html" target="_blank"
+                >View Source</a
+              >
+            </div>
           </article>
         </div>
       </section>
 
+      <!-- SERVICES SECTION -->
       <section id="services" class="reveal">
         <div class="section-heading">
           <h2>Services</h2>
-          <p>Thoughtful digital experiences designed to feel premium, intuitive, and conversion-ready.</p>
+          <p>
+            Thoughtful digital experiences designed to feel premium, intuitive,
+            and conversion-ready.
+          </p>
         </div>
         <div class="services-grid">
           <div class="service-card glass">
             <h3>UI/UX Design</h3>
-            <p>Strategy-led interfaces, elegant systems, and user-centered flows crafted for modern products.</p>
+            <p>
+              Strategy-led interfaces, elegant systems, and user-centered flows
+              crafted for modern products.
+            </p>
           </div>
           <div class="service-card glass">
             <h3>Website Design</h3>
-            <p>Brand-first website experiences with refined visuals, motion, and clear messaging.</p>
+            <p>
+              Brand-first website experiences with refined visuals, motion, and
+              clear messaging.
+            </p>
           </div>
           <div class="service-card glass">
             <h3>Landing Page Design</h3>
-            <p>Conversion-focused page systems tuned for launch campaigns, startups, and product stories.</p>
+            <p>
+              Conversion-focused page systems tuned for launch campaigns,
+              startups, and product stories.
+            </p>
           </div>
           <div class="service-card glass">
             <h3>Frontend Development</h3>
-            <p>Fast, responsive builds with thoughtful transitions and polished interactions.</p>
+            <p>
+              Fast, responsive builds with thoughtful transitions and polished
+              interactions.
+            </p>
           </div>
         </div>
       </section>
 
+      <!-- EXPERIENCE SECTION -->
       <section id="experience" class="reveal">
         <div class="section-heading">
           <h2>Experience timeline</h2>
-          <p>A path shaped by thoughtfully designing and shipping digital products across multiple industries.</p>
+          <p>
+            A path shaped by thoughtfully designing and shipping digital
+            products across multiple industries.
+          </p>
         </div>
         <div class="timeline">
           <div class="timeline-item">
             <div class="timeline-card glass">
               <h3>UI/UX Designer</h3>
-              <p>Led premium product experiences and interface systems for fast-moving startups and digital studios.</p>
+              <p>
+                Led premium product experiences and interface systems for
+                fast-moving startups and digital studios.
+              </p>
             </div>
           </div>
           <div class="timeline-item">
             <div class="timeline-card glass">
               <h3>Frontend Developer</h3>
-              <p>Built responsive, high-performance websites and landing pages using modern JS and design systems.</p>
+              <p>
+                Built responsive, high-performance websites and landing pages
+                using modern JS and design systems.
+              </p>
             </div>
           </div>
           <div class="timeline-item">
             <div class="timeline-card glass">
               <h3>Creative Technologist</h3>
-              <p>Shaped brand-led web experiences with motion, interaction design, and visual storytelling.</p>
+              <p>
+                Shaped brand-led web experiences with motion, interaction
+                design, and visual storytelling.
+              </p>
             </div>
           </div>
         </div>
       </section>
 
+      <!-- CERTIFICATES SECTION -->
       <section id="certificates" class="reveal">
         <div class="section-heading">
           <h2>Certificates</h2>
-          <p>Continuous learning, experimentation, and craftsmanship remain core to my approach.</p>
+          <p>
+            Continuous learning, experimentation, and craftsmanship remain core
+            to my approach.
+          </p>
         </div>
         <div class="cert-grid">
           <div class="cert-card glass">
@@ -1612,25 +1999,41 @@
         </div>
       </section>
 
+      <!-- TESTIMONIALS SECTION -->
       <section id="testimonials" class="reveal">
         <div class="section-heading">
           <h2>Testimonials</h2>
-          <p>Stories from founders, marketers, and teams who valued thoughtful execution.</p>
+          <p>
+            Stories from founders, marketers, and teams who valued thoughtful
+            execution.
+          </p>
         </div>
-        <div class="glass" style="border-radius: 28px; padding: 1rem; overflow: hidden;">
+        <div
+          class="glass"
+          style="border-radius: 28px; padding: 1rem; overflow: hidden"
+        >
           <div class="testimonial-track" id="testimonial-track">
             <article class="testimonial-card">
-              <p>"The experience felt award-worthy from the first glance. Every interaction felt deliberate and premium."</p>
+              <p>
+                "The experience felt award-worthy from the first glance. Every
+                interaction felt deliberate and premium."
+              </p>
               <div class="person">Riya S.</div>
               <div class="role">Founder, Studio North</div>
             </article>
             <article class="testimonial-card">
-              <p>"The site didn't just look beautiful — it converted. The storytelling and flow were exceptional."</p>
+              <p>
+                "The site didn't just look beautiful — it converted. The
+                storytelling and flow were exceptional."
+              </p>
               <div class="person">Aman R.</div>
               <div class="role">Product Lead, Bright Labs</div>
             </article>
             <article class="testimonial-card">
-              <p>"Sharp design, refined motion, and incredibly fast delivery. It felt like working with an agency."</p>
+              <p>
+                "Sharp design, refined motion, and incredibly fast delivery. It
+                felt like working with an agency."
+              </p>
               <div class="person">Nisha P.</div>
               <div class="role">Marketing Director, Loop</div>
             </article>
@@ -1638,6 +2041,7 @@
         </div>
       </section>
 
+      <!-- FAQ SECTION -->
       <section id="faq" class="reveal">
         <div class="section-heading">
           <h2>Frequently asked questions</h2>
@@ -1645,35 +2049,95 @@
         </div>
         <div class="faq-list">
           <div class="faq-card glass active">
-            <div class="faq-q"><span>What kind of projects do you take on?</span><span>+</span></div>
-            <div class="faq-a"><div><p>Premium websites, product landing pages, design systems, portfolio experiences, and UI-led frontends.</p></div></div>
+            <div class="faq-q">
+              <span>What kind of projects do you take on?</span><span>+</span>
+            </div>
+            <div class="faq-a">
+              <div>
+                <p>
+                  Premium websites, product landing pages, design systems,
+                  portfolio experiences, and UI-led frontends.
+                </p>
+              </div>
+            </div>
           </div>
           <div class="faq-card glass">
-            <div class="faq-q"><span>Do you work on both design and development?</span><span>+</span></div>
-            <div class="faq-a"><div><p>Yes. I enjoy moving from visual strategy to final implementation with a cohesive, polished result.</p></div></div>
+            <div class="faq-q">
+              <span>Do you work on both design and development?</span
+              ><span>+</span>
+            </div>
+            <div class="faq-a">
+              <div>
+                <p>
+                  Yes. I enjoy moving from visual strategy to final
+                  implementation with a cohesive, polished result.
+                </p>
+              </div>
+            </div>
           </div>
           <div class="faq-card glass">
-            <div class="faq-q"><span>Can you help with fast launches?</span><span>+</span></div>
-            <div class="faq-a"><div><p>Absolutely. I structure projects to stay fast, structured, and launch-ready without losing visual quality.</p></div></div>
+            <div class="faq-q">
+              <span>Can you help with fast launches?</span><span>+</span>
+            </div>
+            <div class="faq-a">
+              <div>
+                <p>
+                  Absolutely. I structure projects to stay fast, structured, and
+                  launch-ready without losing visual quality.
+                </p>
+              </div>
+            </div>
           </div>
         </div>
       </section>
 
+      <!-- CONTACT SECTION -->
       <section id="contact" class="reveal">
         <div class="contact-shell glass">
           <div class="contact-details">
             <div class="eyebrow">Let's build something refined</div>
-            <h2 style="font-family:'Space Grotesk', sans-serif; font-size: 1.8rem; margin-bottom: 0.8rem;">Ready to create a standout digital presence?</h2>
-            <p style="color: var(--muted); line-height: 1.8;">
-              Whether it's a premium portfolio, a concept-led landing page, or a product experience, I'm ready to create something memorable.
+            <h2
+              style="
+                font-family: &quot;Space Grotesk&quot;, sans-serif;
+                font-size: 1.8rem;
+                margin-bottom: 0.8rem;
+              "
+            >
+              Ready to create a standout digital presence?
+            </h2>
+            <p style="color: var(--muted); line-height: 1.8">
+              Whether it's a premium portfolio, a concept-led landing page, or a
+              product experience, I'm ready to create something memorable.
             </p>
             <ul class="contact-list">
-              <li><a href="mailto:skj30890@gmail.com" style="color: var(--accent);">Email: skj30890@gmail.com</a></li>
-              <li><a href="https://www.linkedin.com/in/shivam-kumar-jha-b407b33a6" target="_blank" style="color: var(--accent);">LinkedIn: shivam-kumar-jha-b407b33a6</a></li>
-              <li><a href="https://wa.me/918709065302" target="_blank" style="color: var(--accent);">WhatsApp: +91 8709065302</a></li>
+              <li>
+                <a href="mailto:skj30890@gmail.com" style="color: var(--accent)"
+                  >Email: skj30890@gmail.com</a
+                >
+              </li>
+              <li>
+                <a
+                  href="https://www.linkedin.com/in/shivam-kumar-jha-b407b33a6"
+                  target="_blank"
+                  style="color: var(--accent)"
+                  >LinkedIn: shivam-kumar-jha-b407b33a6</a
+                >
+              </li>
+              <li>
+                <a
+                  href="https://wa.me/918709065302"
+                  target="_blank"
+                  style="color: var(--accent)"
+                  >WhatsApp: +91 8709065302</a
+                >
+              </li>
             </ul>
           </div>
-          <form class="contact-form" action="mailto:skj30890@gmail.com" method="POST">
+          <form
+            class="contact-form"
+            action="mailto:skj30890@gmail.com"
+            method="POST"
+          >
             <input type="text" placeholder="Your name" />
             <input type="email" placeholder="Your email" />
             <textarea placeholder="Tell me about your project"></textarea>
@@ -1683,241 +2147,60 @@
       </section>
     </main>
 
+    <!-- FOOTER -->
     <footer class="site-footer">
-      <div>© 2026 Shivam Kumar Jha. Crafted for the future. | <a href="mailto:skj30890@gmail.com" style="color: var(--accent); text-decoration: none;">skj30890@gmail.com</a></div>
+      <div>
+        © 2026 Shivam Kumar Jha. Crafted for the future. |
+        <a
+          href="mailto:skj30890@gmail.com"
+          style="color: var(--accent); text-decoration: none"
+          >skj30890@gmail.com</a
+        >
+      </div>
       <a class="back-top" href="#home">Back to top ↑</a>
     </footer>
 
-    <!-- Three.js for 3D Background -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
-    
+    <!-- SCRIPTS -->
+    <!-- Spline Background -->
+    <script type="module" src="https://unpkg.com/@splinetool/viewer@1.12.98/build/spline-viewer.js"></script>
+
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/lenis@1.1.13/dist/lenis.min.js"></script>
-    
+
+    <!-- MAIN PAGE SCRIPT -->
     <script>
-      // Three.js 3D Background - Floating Geometric Shapes
-      (function() {
-        const container = document.getElementById('canvas-container');
-        if (!container) return;
-
-        // Scene setup - theme-aware initial background
-        const scene = new THREE.Scene();
-        const isLightInit = document.documentElement.getAttribute('data-theme') === 'light';
-        scene.background = new THREE.Color(isLightInit ? 0xeef1f6 : 0x0b0f19);
-
-        // Camera
-        const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
-        camera.position.z = 10;
-
-        // Renderer
-        const renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true });
-        renderer.setSize(window.innerWidth, window.innerHeight);
-        renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
-        container.appendChild(renderer.domElement);
-
-        // Lights
-        const ambientLight = new THREE.AmbientLight(0x404060);
-        scene.add(ambientLight);
-
-        const light1 = new THREE.DirectionalLight(0x5bdcff, 1);
-        light1.position.set(5, 5, 5);
-        scene.add(light1);
-
-        const light2 = new THREE.DirectionalLight(0x9f6bff, 0.8);
-        light2.position.set(-5, -3, 5);
-        scene.add(light2);
-
-        const light3 = new THREE.PointLight(0x5bdcff, 0.5, 20);
-        light3.position.set(0, 0, 5);
-        scene.add(light3);
-
-        // Create floating shapes
-        const shapes = [];
-        const colors = [0x5bdcff, 0x9f6bff, 0x4fc3f7, 0x7c4dff, 0x00e5ff];
-        
-        function createShape(type, color, size) {
-          let geometry;
-          switch(type) {
-            case 'torus':
-              geometry = new THREE.TorusGeometry(size, size * 0.3, 16, 32);
-              break;
-            case 'octahedron':
-              geometry = new THREE.OctahedronGeometry(size);
-              break;
-            case 'icosahedron':
-              geometry = new THREE.IcosahedronGeometry(size);
-              break;
-            case 'box':
-              geometry = new THREE.BoxGeometry(size, size, size);
-              break;
-            default:
-              geometry = new THREE.SphereGeometry(size, 16, 16);
-          }
-          
-          const material = new THREE.MeshPhongMaterial({
-            color: color,
-            emissive: color,
-            emissiveIntensity: 0.1,
-            transparent: true,
-            opacity: 0.6,
-            wireframe: false,
-            shininess: 100
-          });
-          
-          const mesh = new THREE.Mesh(geometry, material);
-          
-          // Add wireframe overlay
-          const wireframeMaterial = new THREE.MeshBasicMaterial({
-            color: color,
-            wireframe: true,
-            transparent: true,
-            opacity: 0.2
-          });
-          const wireframe = new THREE.Mesh(geometry, wireframeMaterial);
-          mesh.add(wireframe);
-          
-          return mesh;
-        }
-
-        // Create multiple shapes
-        const shapeTypes = ['torus', 'octahedron', 'icosahedron', 'box', 'sphere'];
-        for (let i = 0; i < 15; i++) {
-          const type = shapeTypes[Math.floor(Math.random() * shapeTypes.length)];
-          const color = colors[Math.floor(Math.random() * colors.length)];
-          const size = 0.3 + Math.random() * 0.8;
-          const shape = createShape(type, color, size);
-          
-          shape.position.x = (Math.random() - 0.5) * 20;
-          shape.position.y = (Math.random() - 0.5) * 20;
-          shape.position.z = (Math.random() - 0.5) * 10 - 2;
-          
-          shape.rotation.x = Math.random() * Math.PI * 2;
-          shape.rotation.y = Math.random() * Math.PI * 2;
-          
-          shape.userData = {
-            rotSpeedX: (Math.random() - 0.5) * 0.02,
-            rotSpeedY: (Math.random() - 0.5) * 0.02,
-            rotSpeedZ: (Math.random() - 0.5) * 0.02,
-            floatSpeed: 0.5 + Math.random() * 0.5,
-            floatAmount: 0.5 + Math.random() * 1.5,
-            originalY: shape.position.y
-          };
-          
-          scene.add(shape);
-          shapes.push(shape);
-        }
-
-        // Mouse tracking for parallax
-        let mouseX = 0;
-        let mouseY = 0;
-        let targetMouseX = 0;
-        let targetMouseY = 0;
-
-        document.addEventListener('mousemove', (event) => {
-          targetMouseX = (event.clientX / window.innerWidth) * 2 - 1;
-          targetMouseY = -(event.clientY / window.innerHeight) * 2 + 1;
-        });
-
-        // Handle resize
-        function resize() {
-          const width = window.innerWidth;
-          const height = window.innerHeight;
-          camera.aspect = width / height;
-          camera.updateProjectionMatrix();
-          renderer.setSize(width, height);
-        }
-        window.addEventListener('resize', resize);
-
-        // Animation loop
-        function animate() {
-          requestAnimationFrame(animate);
-
-          // Smooth mouse follow
-          mouseX += (targetMouseX - mouseX) * 0.05;
-          mouseY += (targetMouseY - mouseY) * 0.05;
-
-          // Rotate shapes
-          shapes.forEach((shape) => {
-            shape.rotation.x += shape.userData.rotSpeedX;
-            shape.rotation.y += shape.userData.rotSpeedY;
-            shape.rotation.z += shape.userData.rotSpeedZ;
-            
-            // Floating animation
-            shape.position.y = shape.userData.originalY + 
-              Math.sin(Date.now() * 0.001 * shape.userData.floatSpeed) * shape.userData.floatAmount;
-            
-            // Parallax effect
-            shape.position.x += (mouseX * 0.3 - shape.position.x * 0.01) * 0.01;
-            shape.position.z += (mouseY * 0.2 - shape.position.z * 0.01) * 0.01;
-          });
-
-          // Camera slight rotation based on mouse
-          camera.position.x += (mouseX * 0.5 - camera.position.x) * 0.01;
-          camera.position.y += (mouseY * 0.3 - camera.position.y) * 0.01;
-          camera.lookAt(0, 0, 0);
-
-          renderer.render(scene, camera);
-        }
-
-        animate();
-
-        // Theme-aware scene update (called by toggle)
-        window.updateSceneTheme = function(isLight) {
-          scene.background = new THREE.Color(isLight ? 0xeef1f6 : 0x0b0f19);
-          ambientLight.color.setHex(isLight ? 0xaeb6c6 : 0x404060);
-          ambientLight.intensity = isLight ? 1.1 : 1.0;
-          shapes.forEach((shape) => {
-            const mat = shape.material;
-            if (mat && mat.emissive) {
-              mat.emissiveIntensity = isLight ? 0.35 : 0.1;
-              mat.opacity = isLight ? 0.75 : 0.6;
-              mat.needsUpdate = true;
-            }
-            const wf = shape.children && shape.children[0];
-            if (wf && wf.material) {
-              wf.material.opacity = isLight ? 0.4 : 0.2;
-              wf.material.needsUpdate = true;
-            }
-          });
-        };
-
-        // Hide loader after scene is ready
-        setTimeout(() => {
-          const loader = document.querySelector('.loader');
-          if (loader) {
-            loader.classList.add('hidden');
-          }
-        }, 1500);
-
-      })();
-
       // Rest of the existing JavaScript
-      const loaderEl = document.querySelector('.loader');
-      window.addEventListener('load', () => {
+      const loaderEl = document.querySelector(".loader");
+      window.addEventListener("load", () => {
         setTimeout(() => {
-          if (loaderEl) loaderEl.classList.add('hidden');
+          if (loaderEl) loaderEl.classList.add("hidden");
         }, 500);
       });
 
       // 3D Realistic Functional Cursor
-      (function() {
-        const cursor3d = document.querySelector('.cursor-3d');
-        const cursorCore = document.querySelector('.cursor-core');
-        const cursorRing = document.querySelector('.cursor-ring');
-        const cursorTrail = document.querySelector('.cursor-trail');
+      (function () {
+        const cursor3d = document.querySelector(".cursor-3d");
+        const cursorCore = document.querySelector(".cursor-core");
+        const cursorRing = document.querySelector(".cursor-ring");
+        const cursorTrail = document.querySelector(".cursor-trail");
         if (!cursor3d || !cursorCore || !cursorRing || !cursorTrail) return;
 
-        let mouseX = 0, mouseY = 0;
-        let ringX = 0, ringY = 0;
-        let trailX = 0, trailY = 0;
-        let lastX = 0, lastY = 0;
-        let velX = 0, velY = 0;
+        let mouseX = 0,
+          mouseY = 0;
+        let ringX = 0,
+          ringY = 0;
+        let trailX = 0,
+          trailY = 0;
+        let lastX = 0,
+          lastY = 0;
+        let velX = 0,
+          velY = 0;
 
-        document.addEventListener('mousemove', (e) => {
+        document.addEventListener("mousemove", (e) => {
           mouseX = e.clientX;
           mouseY = e.clientY;
-          cursor3d.classList.add('visible');
+          cursor3d.classList.add("visible");
 
           velX = mouseX - lastX;
           velY = mouseY - lastY;
@@ -1927,21 +2210,27 @@
           cursorCore.style.transform = `translate(${mouseX}px, ${mouseY}px) translate(-50%, -50%) rotateX(${velY * 0.5}deg) rotateY(${velX * 0.5}deg)`;
         });
 
-        document.addEventListener('mouseleave', () => {
-          cursor3d.classList.remove('visible');
+        document.addEventListener("mouseleave", () => {
+          cursor3d.classList.remove("visible");
         });
 
-        document.addEventListener('mousedown', () => {
-          cursor3d.classList.add('click');
+        document.addEventListener("mousedown", () => {
+          cursor3d.classList.add("click");
         });
-        document.addEventListener('mouseup', () => {
-          cursor3d.classList.remove('click');
+        document.addEventListener("mouseup", () => {
+          cursor3d.classList.remove("click");
         });
 
-        const hoverables = document.querySelectorAll('a, button, .btn, .social-pill, .faq-card, .project-card, .skill-card, .service-card, .cert-card, input, textarea, .nav-links a');
+        const hoverables = document.querySelectorAll(
+          "a, button, .btn, .social-pill, .faq-card, .project-card, .skill-card, .service-card, .cert-card, input, textarea, .nav-links a",
+        );
         hoverables.forEach((el) => {
-          el.addEventListener('mouseenter', () => cursor3d.classList.add('hover'));
-          el.addEventListener('mouseleave', () => cursor3d.classList.remove('hover'));
+          el.addEventListener("mouseenter", () =>
+            cursor3d.classList.add("hover"),
+          );
+          el.addEventListener("mouseleave", () =>
+            cursor3d.classList.remove("hover"),
+          );
         });
 
         function animateCursor() {
@@ -1961,81 +2250,90 @@
         animateCursor();
       })();
 
-      const menuToggle = document.querySelector('.menu-toggle');
-      const navLinks = document.querySelector('.nav-links');
-      menuToggle?.addEventListener('click', () => {
-        navLinks.classList.toggle('open');
+      const menuToggle = document.querySelector(".menu-toggle");
+      const navLinks = document.querySelector(".nav-links");
+      menuToggle?.addEventListener("click", () => {
+        if (navLinks) navLinks.classList.toggle("open");
       });
 
-      document.querySelectorAll('.nav-links a').forEach((link) => {
-        link.addEventListener('click', () => navLinks.classList.remove('open'));
+      document.querySelectorAll(".nav-links a").forEach((link) => {
+        link.addEventListener("click", () => navLinks?.classList.remove("open"));
       });
 
-      const sections = document.querySelectorAll('section[id]');
-      const navA = document.querySelectorAll('.nav-links a');
+      const sections = document.querySelectorAll("section[id]");
+      const navA = document.querySelectorAll(".nav-links a");
 
       const observer = new IntersectionObserver(
         (entries) => {
           entries.forEach((entry) => {
             if (entry.isIntersecting) {
-              navA.forEach((link) => link.classList.toggle('active', link.getAttribute('href') === `#${entry.target.id}`));
+              navA.forEach((link) =>
+                link.classList.toggle(
+                  "active",
+                  link.getAttribute("href") === `#${entry.target.id}`,
+                ),
+              );
             }
           });
         },
-        { threshold: 0.4 }
+        { threshold: 0.4 },
       );
       sections.forEach((section) => observer.observe(section));
 
       gsap.registerPlugin(ScrollTrigger);
-      gsap.set('.reveal', { opacity: 0, y: 32 });
-      gsap.to('.reveal', {
+      gsap.set(".reveal", { opacity: 0, y: 32 });
+      gsap.to(".reveal", {
         opacity: 1,
         y: 0,
         duration: 1,
         stagger: 0.08,
-        ease: 'power3.out',
+        ease: "power3.out",
         scrollTrigger: {
-          trigger: 'main',
-          start: 'top 80%',
-          end: 'bottom 20%',
-          toggleActions: 'play none none reverse'
-        }
+          trigger: "main",
+          start: "top 80%",
+          end: "bottom 20%",
+          toggleActions: "play none none reverse",
+        },
       });
 
-      const counters = document.querySelectorAll('.counter');
+      const counters = document.querySelectorAll(".counter");
       counters.forEach((counter) => {
         const target = Number(counter.dataset.target || 0);
         const obj = { value: 0 };
         ScrollTrigger.create({
           trigger: counter,
-          start: 'top 90%',
+          start: "top 90%",
           once: true,
           onEnter: () => {
             gsap.to(obj, {
               value: target,
               duration: 1.1,
-              ease: 'power3.out',
+              ease: "power3.out",
               onUpdate: () => {
                 counter.innerText = Math.round(obj.value).toString();
-              }
+              },
             });
-          }
+          },
         });
       });
 
-      document.querySelectorAll('.progress-bar span').forEach((bar) => {
-        const width = bar.dataset.width || '0';
+      document.querySelectorAll(".progress-bar span").forEach((bar) => {
+        const width = bar.dataset.width || "0";
         ScrollTrigger.create({
           trigger: bar,
-          start: 'top 95%',
+          start: "top 95%",
           once: true,
           onEnter: () => {
-            gsap.to(bar, { width: `${width}%`, duration: 0.9, ease: 'power3.out' });
-          }
+            gsap.to(bar, {
+              width: `${width}%`,
+              duration: 0.9,
+              ease: "power3.out",
+            });
+          },
         });
       });
 
-      const slider = document.getElementById('testimonial-track');
+      const slider = document.getElementById("testimonial-track");
       let testimonialIndex = 0;
       setInterval(() => {
         if (!slider) return;
@@ -2043,26 +2341,32 @@
         slider.style.transform = `translateX(-${testimonialIndex * 100}%)`;
       }, 4000);
 
-      document.querySelectorAll('.faq-card').forEach((card) => {
-        card.addEventListener('click', () => {
-          document.querySelectorAll('.faq-card').forEach((item) => item.classList.remove('active'));
-          card.classList.add('active');
+      document.querySelectorAll(".faq-card").forEach((card) => {
+        card.addEventListener("click", () => {
+          document
+            .querySelectorAll(".faq-card")
+            .forEach((item) => item.classList.remove("active"));
+          card.classList.add("active");
         });
       });
 
-      document.querySelectorAll('.project-card, .skill-card, .service-card, .cert-card').forEach((item) => {
-        item.addEventListener('mousemove', (event) => {
-          const rect = item.getBoundingClientRect();
-          const x = event.clientX - rect.left;
-          const y = event.clientY - rect.top;
-          const rotateY = ((x / rect.width) - 0.5) * 12;
-          const rotateX = ((0.5 - y / rect.height)) * 12;
-          item.style.transform = `perspective(1200px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) translateY(-8px) scale(1.02)`;
+      document
+        .querySelectorAll(
+          ".project-card, .skill-card, .service-card, .cert-card",
+        )
+        .forEach((item) => {
+          item.addEventListener("mousemove", (event) => {
+            const rect = item.getBoundingClientRect();
+            const x = event.clientX - rect.left;
+            const y = event.clientY - rect.top;
+            const rotateY = (x / rect.width - 0.5) * 12;
+            const rotateX = (0.5 - y / rect.height) * 12;
+            item.style.transform = `perspective(1200px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) translateY(-8px) scale(1.02)`;
+          });
+          item.addEventListener("mouseleave", () => {
+            item.style.transform = "";
+          });
         });
-        item.addEventListener('mouseleave', () => {
-          item.style.transform = '';
-        });
-      });
 
       const lenis = new Lenis({
         duration: 0.8,
@@ -2070,7 +2374,7 @@
         smoothTouch: true,
         wheelMultiplier: 1.6,
         touchMultiplier: 1.4,
-        lerp: 0.14
+        lerp: 0.14,
       });
       function raf(time) {
         lenis.raf(time);
@@ -2078,20 +2382,24 @@
       }
       requestAnimationFrame(raf);
 
-      const progressBar = document.querySelector('.scroll-progress');
+      const progressBar = document.querySelector(".scroll-progress");
       const updateProgress = () => {
+        if (!progressBar) return;
         const scrollTop = window.scrollY;
-        const height = document.documentElement.scrollHeight - window.innerHeight;
+        const height =
+          document.documentElement.scrollHeight - window.innerHeight;
         const percent = height > 0 ? (scrollTop / height) * 100 : 0;
         progressBar.style.width = `${percent}%`;
       };
-      window.addEventListener('scroll', updateProgress, { passive: true });
+      lenis.on("scroll", updateProgress);
+      window.addEventListener("scroll", updateProgress, { passive: true });
+      window.addEventListener("resize", updateProgress, { passive: true });
       updateProgress();
 
       document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
-        anchor.addEventListener('click', (event) => {
-          const targetId = anchor.getAttribute('href');
-          if (!targetId || targetId === '#') return;
+        anchor.addEventListener("click", (event) => {
+          const targetId = anchor.getAttribute("href");
+          if (!targetId || targetId === "#") return;
           const target = document.querySelector(targetId);
           if (target) {
             event.preventDefault();
@@ -2101,38 +2409,38 @@
       });
 
       // Theme toggle: dark <-> light with localStorage persistence
-      const themeToggle = document.getElementById('theme-toggle');
+      const themeToggle = document.getElementById("theme-toggle");
       const htmlEl = document.documentElement;
-      const savedTheme = localStorage.getItem('theme') || 'dark';
-      if (savedTheme === 'light') {
-        htmlEl.setAttribute('data-theme', 'light');
+      const savedTheme = localStorage.getItem("theme") || "dark";
+      if (savedTheme === "light") {
+        htmlEl.setAttribute("data-theme", "light");
       }
-      themeToggle?.addEventListener('click', () => {
-        const currentTheme = htmlEl.getAttribute('data-theme');
-        if (currentTheme === 'light') {
-          htmlEl.removeAttribute('data-theme');
-          localStorage.setItem('theme', 'dark');
-          if (window.updateSceneTheme) window.updateSceneTheme(false);
+      themeToggle?.addEventListener("click", () => {
+        const currentTheme = htmlEl.getAttribute("data-theme");
+        if (currentTheme === "light") {
+          htmlEl.removeAttribute("data-theme");
+          localStorage.setItem("theme", "dark");
         } else {
-          htmlEl.setAttribute('data-theme', 'light');
-          localStorage.setItem('theme', 'light');
-          if (window.updateSceneTheme) window.updateSceneTheme(true);
+          htmlEl.setAttribute("data-theme", "light");
+          localStorage.setItem("theme", "light");
         }
       });
 
       const textLines = [
-        'UI/UX Designer & Frontend Developer',
-        'Crafting premium digital experiences',
-        'Building interfaces with motion and purpose'
+        "UI/UX Designer & Frontend Developer",
+        "Crafting premium digital experiences",
+        "Building interfaces with motion and purpose",
       ];
-      const typedText = document.querySelector('.typed-text');
+      const typedText = document.querySelector(".typed-text");
       let lineIndex = 0;
       let charIndex = 0;
       let deleting = false;
       function typeLoop() {
         const text = textLines[lineIndex];
         if (!typedText) return;
-        typedText.textContent = deleting ? text.slice(0, charIndex--) : text.slice(0, charIndex++);
+        typedText.textContent = deleting
+          ? text.slice(0, charIndex--)
+          : text.slice(0, charIndex++);
         if (!deleting && charIndex > text.length) {
           deleting = true;
           setTimeout(typeLoop, 1000);
@@ -2146,5 +2454,9 @@
       }
       typeLoop();
     </script>
+      <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+  <script>
+    AOS.init();
+  </script>
   </body>
 </html>
