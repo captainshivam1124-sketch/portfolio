@@ -1,0 +1,689 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#0a0a0b">
+<meta name="description" content="Client Discovery Form for freelance web design and development projects.">
+<title>Client Discovery Form</title>
+<style>
+:root{
+  --bg:#08090b;--panel:#101216;--panel2:#15171c;--text:#f5f7fa;--muted:#9aa1ad;
+  --line:#292d35;--accent:#7c5cff;--accent2:#9a86ff;--danger:#ff6b6b;--ok:#4ade80;
+  --radius:18px;--shadow:0 24px 80px rgba(0,0,0,.34);
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:radial-gradient(circle at 50% -10%,#19152d 0,#08090b 40%);color:var(--text);font-family:Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;line-height:1.55}
+button,input,textarea,select{font:inherit}
+button{cursor:pointer}
+.topbar{position:sticky;top:0;z-index:50;background:rgba(8,9,11,.84);backdrop-filter:blur(18px);border-bottom:1px solid rgba(255,255,255,.07)}
+.topbar-inner{max-width:1180px;margin:auto;padding:16px 24px 14px;display:flex;align-items:center;gap:18px}
+.brand{font-weight:800;letter-spacing:-.03em;white-space:nowrap}
+.progress-wrap{flex:1}
+.progress-meta{display:flex;justify-content:space-between;font-size:12px;color:var(--muted);margin-bottom:7px}
+.progress{height:5px;background:#20232a;border-radius:99px;overflow:hidden}
+.progress-bar{height:100%;width:6.67%;background:linear-gradient(90deg,var(--accent),#b09cff);transition:width .35s ease}
+.container{max-width:900px;margin:0 auto;padding:64px 24px 90px}
+.intro{margin-bottom:38px}
+.eyebrow{color:#a99cff;font-size:12px;font-weight:800;text-transform:uppercase;letter-spacing:.16em}
+h1{font-size:clamp(34px,6vw,64px);line-height:1.02;letter-spacing:-.055em;margin:12px 0 18px}
+.intro p{max-width:680px;color:var(--muted);font-size:17px;margin:0}
+.step{display:none;animation:fadeUp .38s ease both}
+.step.active{display:block}
+@keyframes fadeUp{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:none}}
+.step-head{margin-bottom:28px}
+.step-number{color:var(--accent2);font-size:13px;font-weight:800}
+h2{font-size:32px;letter-spacing:-.04em;margin:5px 0 8px}
+.step-head p{color:var(--muted);margin:0}
+.card{background:linear-gradient(180deg,rgba(21,23,28,.96),rgba(14,16,20,.96));border:1px solid var(--line);border-radius:var(--radius);padding:26px;box-shadow:var(--shadow);margin-bottom:18px}
+.grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:17px}
+.grid-3{grid-template-columns:repeat(3,minmax(0,1fr))}
+.field{margin-bottom:17px}
+.field:last-child{margin-bottom:0}
+label,.legend{display:block;font-size:13px;font-weight:700;margin:0 0 8px;color:#e9ebef}
+.required{color:#b7aaff}
+input,textarea,select{width:100%;background:#0c0e12;border:1px solid #30343d;color:var(--text);border-radius:12px;padding:13px 14px;outline:none;transition:.2s}
+input:focus,textarea:focus,select:focus{border-color:var(--accent);box-shadow:0 0 0 3px rgba(124,92,255,.14)}
+textarea{min-height:130px;resize:vertical}
+textarea.huge{min-height:300px;font-size:16px;line-height:1.7}
+::placeholder{color:#626a77}
+.netlify-hp{position:absolute!important;overflow:hidden!important;clip:rect(0 0 0 0)!important;width:1px!important;height:1px!important;margin:-1px!important;padding:0!important;border:0!important}
+.help{font-size:12px;color:var(--muted);margin-top:7px}
+.options{display:flex;flex-wrap:wrap;gap:9px}
+.option{position:relative}
+.option input{position:absolute;opacity:0;pointer-events:none}
+.option label{display:inline-flex;align-items:center;padding:10px 13px;border:1px solid #30343d;border-radius:999px;background:#0c0e12;color:#bfc5cf;cursor:pointer;transition:.2s}
+.option input:checked+label{background:rgba(124,92,255,.17);border-color:var(--accent);color:#fff}
+.check-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:9px}
+.check{display:flex;gap:9px;align-items:center;padding:11px 12px;border:1px solid #30343d;background:#0c0e12;border-radius:11px;color:#cbd0d9;font-size:13px}
+.check input{width:auto;accent-color:var(--accent)}
+.divider{height:1px;background:var(--line);margin:26px 0}
+.service{border:1px solid #30343d;background:#0c0e12;border-radius:14px;padding:17px;margin-bottom:12px}
+.service-top{display:flex;justify-content:space-between;align-items:center;margin-bottom:12px}
+.service-title{font-weight:800}
+.icon-btn{border:1px solid #30343d;background:#15171c;color:#cdd2dc;border-radius:9px;padding:7px 10px}
+.actions{display:flex;justify-content:space-between;gap:12px;margin-top:22px}
+.btn{border:1px solid #343844;background:#171920;color:#fff;padding:13px 19px;border-radius:12px;font-weight:800;transition:.2s}
+.btn:hover{transform:translateY(-1px);border-color:#505667}
+.btn.primary{border:0;background:linear-gradient(135deg,var(--accent),#6747e8);box-shadow:0 10px 30px rgba(124,92,255,.24)}
+.btn.secondary{color:#c7ccd5}
+.file{padding:18px;border:1px dashed #3a3e48;border-radius:13px;background:#0c0e12}
+.file input{border:0;padding:0;background:transparent}
+.error{color:#ff8d8d;font-size:12px;margin-top:6px;display:none}
+.invalid{border-color:var(--danger)!important}
+.notice{padding:13px 15px;border:1px solid rgba(124,92,255,.3);background:rgba(124,92,255,.08);border-radius:12px;color:#cfc8ff;font-size:13px}
+.success{display:none;text-align:center;padding:40px 0}
+.success.show{display:block;animation:fadeUp .45s ease}
+.success-icon{width:70px;height:70px;border-radius:50%;margin:0 auto 18px;background:rgba(74,222,128,.13);color:var(--ok);display:grid;place-items:center;font-size:32px}
+.brief{white-space:pre-wrap;background:#0b0d10;border:1px solid #30343d;border-radius:14px;padding:20px;line-height:1.65;color:#dce0e7;max-height:620px;overflow:auto;font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:13px;text-align:left}
+.brief-actions{display:flex;flex-wrap:wrap;justify-content:center;gap:10px;margin:20px 0}
+footer{max-width:900px;margin:0 auto;padding:0 24px 40px;color:#686f7b;text-align:center;font-size:12px}
+@media(max-width:720px){
+ .topbar-inner{padding:13px 15px}.brand{font-size:14px}.container{padding:42px 15px 60px}
+ .grid,.grid-3{grid-template-columns:1fr}.check-grid{grid-template-columns:1fr 1fr}
+ .card{padding:19px}h2{font-size:27px}.actions .btn{flex:1}
+}
+@media(max-width:450px){.check-grid{grid-template-columns:1fr}.topbar-inner{gap:10px}.progress-meta{font-size:11px}}
+@media print{
+ body{background:#fff;color:#111}.topbar,.intro,.actions,footer,.brief-actions{display:none!important}
+ .container{padding:0}.success{display:block!important}.card,.brief{color:#111;background:#fff;border:1px solid #ddd;box-shadow:none}
+}
+</style>
+</head>
+<body>
+<div class="topbar">
+  <div class="topbar-inner">
+    <div class="brand">Client Discovery</div>
+    <div class="progress-wrap">
+      <div class="progress-meta"><span id="progressText">Step 1 of 15</span><span id="progressPct">7%</span></div>
+      <div class="progress"><div class="progress-bar" id="progressBar"></div></div>
+    </div>
+  </div>
+</div>
+
+<main class="container">
+  <section class="intro">
+    <div class="eyebrow">Website Project Intake</div>
+    <h1>Let's build the right website from day one.</h1>
+    <p>Tell us everything that matters about your business, audience, brand, content, goals and technical needs. Your answers will be turned into a structured project brief for planning and development.</p>
+  </section>
+
+  <form id="discoveryForm" name="client-discovery" method="POST" data-netlify="true" netlify-honeypot="bot-field" enctype="multipart/form-data">
+    <input type="hidden" name="form-name" value="client-discovery">
+    <p class="netlify-hp"><label>Don't fill this out: <input name="bot-field"></label></p>
+
+    <section class="step active" data-step="1">
+      <div class="step-head"><span class="step-number">01 / 15</span><h2>Business Information</h2><p>Start with the basics so the project has the right context.</p></div>
+      <div class="card">
+        <div class="grid">
+          <div class="field"><label>Company Name <span class="required">*</span></label><input name="company_name" required></div>
+          <div class="field"><label>Industry / Niche <span class="required">*</span></label><input name="industry" required></div>
+          <div class="field"><label>Contact Person <span class="required">*</span></label><input name="contact_person" required></div>
+          <div class="field"><label>Email Address <span class="required">*</span></label><input type="email" name="email" required></div>
+          <div class="field"><label>Phone Number</label><input type="tel" name="phone"></div>
+          <div class="field"><label>Country</label><input name="country"></div>
+          <div class="field"><label>City</label><input name="city"></div>
+          <div class="field"><label>Existing Website URL</label><input type="url" name="existing_website" placeholder="https://"></div>
+        </div>
+        <div class="field"><label>Social Media Links</label><textarea name="social_links" placeholder="Instagram, LinkedIn, YouTube, Facebook, etc."></textarea></div>
+        <div class="field"><label>Describe your business in detail <span class="required">*</span></label><textarea name="business_description" required></textarea></div>
+      </div>
+    </section>
+
+    <section class="step" data-step="2">
+      <div class="step-head"><span class="step-number">02 / 15</span><h2>Business Goals</h2><p>What should this website actually achieve?</p></div>
+      <div class="card">
+        <div class="field"><span class="legend">What is the main purpose of this website? <span class="required">*</span></span><div class="options">
+          <div class="option"><input id="goal1" type="radio" name="website_purpose" value="Generate Leads" required><label for="goal1">Generate Leads</label></div>
+          <div class="option"><input id="goal2" type="radio" name="website_purpose" value="Increase Sales"><label for="goal2">Increase Sales</label></div>
+          <div class="option"><input id="goal3" type="radio" name="website_purpose" value="Showcase Portfolio"><label for="goal3">Showcase Portfolio</label></div>
+          <div class="option"><input id="goal4" type="radio" name="website_purpose" value="Build Brand Awareness"><label for="goal4">Build Brand Awareness</label></div>
+          <div class="option"><input id="goal5" type="radio" name="website_purpose" value="Book Appointments"><label for="goal5">Book Appointments</label></div>
+          <div class="option"><input id="goal6" type="radio" name="website_purpose" value="Provide Information"><label for="goal6">Provide Information</label></div>
+          <div class="option"><input id="goal7" type="radio" name="website_purpose" value="Other"><label for="goal7">Other</label></div>
+        </div></div>
+        <div class="field"><label>What results do you expect from the website? <span class="required">*</span></label><textarea name="expected_results" required></textarea></div>
+      </div>
+    </section>
+
+    <section class="step" data-step="3">
+      <div class="step-head"><span class="step-number">03 / 15</span><h2>Target Audience</h2><p>Help us understand who the website is for.</p></div>
+      <div class="card">
+        <div class="grid">
+          <div class="field"><label>Target Country</label><input name="target_country"></div>
+          <div class="field"><label>Target Cities</label><input name="target_cities"></div>
+          <div class="field"><label>Target Age Group</label><input name="target_age"></div>
+          <div class="field"><span class="legend">B2B or B2C</span><div class="options">
+            <div class="option"><input id="b2b" type="radio" name="business_model" value="B2B"><label for="b2b">B2B</label></div>
+            <div class="option"><input id="b2c" type="radio" name="business_model" value="B2C"><label for="b2c">B2C</label></div>
+            <div class="option"><input id="both" type="radio" name="business_model" value="Both"><label for="both">Both</label></div>
+          </div></div>
+        </div>
+        <div class="field"><label>Who is your ideal customer?</label><textarea name="ideal_customer"></textarea></div>
+        <div class="field"><label>What problems does your customer face?</label><textarea name="customer_problems"></textarea></div>
+        <div class="field"><label>Why should customers choose you?</label><textarea name="why_choose_you"></textarea></div>
+      </div>
+    </section>
+
+    <section class="step" data-step="4">
+      <div class="step-head"><span class="step-number">04 / 15</span><h2>Branding</h2><p>Capture the visual identity before design starts.</p></div>
+      <div class="card">
+        <div class="grid">
+          <div class="field"><label>Logo Upload</label><div class="file"><input type="file" name="logo" accept="image/*,.svg"></div></div>
+          <div class="field"><label>Brand Guidelines Upload</label><div class="file"><input type="file" name="brand_guidelines" accept=".pdf,.doc,.docx,.ppt,.pptx,.png,.jpg,.jpeg"></div></div>
+        </div>
+        <div class="grid">
+          <div class="field"><label>Brand Colors</label><input name="brand_colors" placeholder="e.g. #111827, #7C3AED"></div>
+          <div class="field"><label>Fonts</label><input name="brand_fonts" placeholder="e.g. Inter + Playfair Display"></div>
+        </div>
+        <div class="field"><label>Describe your brand personality.</label><textarea name="brand_personality"></textarea></div>
+        <div class="field"><label>What feelings should visitors experience?</label><textarea name="visitor_feelings"></textarea></div>
+        <div class="field"><span class="legend">Brand personality keywords</span><div class="options">
+          <div class="option"><input id="bp1" type="checkbox" name="brand_traits" value="Premium"><label for="bp1">Premium</label></div>
+          <div class="option"><input id="bp2" type="checkbox" name="brand_traits" value="Luxury"><label for="bp2">Luxury</label></div>
+          <div class="option"><input id="bp3" type="checkbox" name="brand_traits" value="Corporate"><label for="bp3">Corporate</label></div>
+          <div class="option"><input id="bp4" type="checkbox" name="brand_traits" value="Friendly"><label for="bp4">Friendly</label></div>
+          <div class="option"><input id="bp5" type="checkbox" name="brand_traits" value="Modern"><label for="bp5">Modern</label></div>
+          <div class="option"><input id="bp6" type="checkbox" name="brand_traits" value="Creative"><label for="bp6">Creative</label></div>
+          <div class="option"><input id="bp7" type="checkbox" name="brand_traits" value="Futuristic"><label for="bp7">Futuristic</label></div>
+        </div></div>
+      </div>
+    </section>
+
+    <section class="step" data-step="5">
+      <div class="step-head"><span class="step-number">05 / 15</span><h2>Competitor Analysis</h2><p>Show us what you admire, and what you want to avoid.</p></div>
+      <div class="card" id="competitors"></div>
+    </section>
+
+    <section class="step" data-step="6">
+      <div class="step-head"><span class="step-number">06 / 15</span><h2>Design Direction</h2><p>Define the visual language and motion level.</p></div>
+      <div class="card">
+        <div class="field"><span class="legend">Preferred style</span><div class="options">
+          <div class="option"><input id="ds1" type="checkbox" name="design_style" value="Minimal"><label for="ds1">Minimal</label></div>
+          <div class="option"><input id="ds2" type="checkbox" name="design_style" value="Modern"><label for="ds2">Modern</label></div>
+          <div class="option"><input id="ds3" type="checkbox" name="design_style" value="Luxury"><label for="ds3">Luxury</label></div>
+          <div class="option"><input id="ds4" type="checkbox" name="design_style" value="Corporate"><label for="ds4">Corporate</label></div>
+          <div class="option"><input id="ds5" type="checkbox" name="design_style" value="Creative"><label for="ds5">Creative</label></div>
+          <div class="option"><input id="ds6" type="checkbox" name="design_style" value="Futuristic"><label for="ds6">Futuristic</label></div>
+        </div></div>
+        <div class="grid">
+          <div class="field"><span class="legend">Preferred theme</span><div class="options">
+            <div class="option"><input id="th1" type="radio" name="theme" value="Light"><label for="th1">Light</label></div>
+            <div class="option"><input id="th2" type="radio" name="theme" value="Dark"><label for="th2">Dark</label></div>
+            <div class="option"><input id="th3" type="radio" name="theme" value="Mixed"><label for="th3">Mixed</label></div>
+          </div></div>
+          <div class="field"><span class="legend">Animation level</span><div class="options">
+            <div class="option"><input id="an1" type="radio" name="animation_level" value="None"><label for="an1">None</label></div>
+            <div class="option"><input id="an2" type="radio" name="animation_level" value="Basic"><label for="an2">Basic</label></div>
+            <div class="option"><input id="an3" type="radio" name="animation_level" value="Medium"><label for="an3">Medium</label></div>
+            <div class="option"><input id="an4" type="radio" name="animation_level" value="Advanced"><label for="an4">Advanced</label></div>
+          </div></div>
+        </div>
+        <div class="field"><label>Describe exactly how you want your website to look.</label><textarea name="design_description" class="huge"></textarea></div>
+      </div>
+    </section>
+
+    <section class="step" data-step="7">
+      <div class="step-head"><span class="step-number">07 / 15</span><h2>Website Structure</h2><p>Select the pages your project needs.</p></div>
+      <div class="card">
+        <div class="check-grid">
+          <label class="check"><input type="checkbox" name="pages" value="Home">Home</label>
+          <label class="check"><input type="checkbox" name="pages" value="About">About</label>
+          <label class="check"><input type="checkbox" name="pages" value="Services">Services</label>
+          <label class="check"><input type="checkbox" name="pages" value="Portfolio">Portfolio</label>
+          <label class="check"><input type="checkbox" name="pages" value="Case Studies">Case Studies</label>
+          <label class="check"><input type="checkbox" name="pages" value="Team">Team</label>
+          <label class="check"><input type="checkbox" name="pages" value="Pricing">Pricing</label>
+          <label class="check"><input type="checkbox" name="pages" value="FAQ">FAQ</label>
+          <label class="check"><input type="checkbox" name="pages" value="Blog">Blog</label>
+          <label class="check"><input type="checkbox" name="pages" value="Contact">Contact</label>
+          <label class="check"><input type="checkbox" name="pages" value="Careers">Careers</label>
+          <label class="check"><input type="checkbox" name="pages" value="Testimonials">Testimonials</label>
+          <label class="check"><input type="checkbox" name="pages" value="Gallery">Gallery</label>
+        </div>
+        <div class="divider"></div>
+        <div class="field"><label>Custom page(s)</label><input name="custom_pages" placeholder="e.g. Resources, Locations, Product Detail"></div>
+      </div>
+    </section>
+
+    <section class="step" data-step="8">
+      <div class="step-head"><span class="step-number">08 / 15</span><h2>Services</h2><p>List every core service that needs a place on the website.</p></div>
+      <div class="card">
+        <div id="services"></div>
+        <button type="button" class="btn secondary" id="addService">+ Add New Service</button>
+      </div>
+    </section>
+
+    <section class="step" data-step="9">
+      <div class="step-head"><span class="step-number">09 / 15</span><h2>Features</h2><p>Choose the functionality the website should support.</p></div>
+      <div class="card">
+        <div class="check-grid">
+          <label class="check"><input type="checkbox" name="features" value="Contact Form">Contact Form</label>
+          <label class="check"><input type="checkbox" name="features" value="WhatsApp Integration">WhatsApp Integration</label>
+          <label class="check"><input type="checkbox" name="features" value="Live Chat">Live Chat</label>
+          <label class="check"><input type="checkbox" name="features" value="Booking System">Booking System</label>
+          <label class="check"><input type="checkbox" name="features" value="Blog">Blog</label>
+          <label class="check"><input type="checkbox" name="features" value="CMS">CMS</label>
+          <label class="check"><input type="checkbox" name="features" value="User Login">User Login</label>
+          <label class="check"><input type="checkbox" name="features" value="Dashboard">Dashboard</label>
+          <label class="check"><input type="checkbox" name="features" value="Payment Gateway">Payment Gateway</label>
+          <label class="check"><input type="checkbox" name="features" value="E-commerce">E-commerce</label>
+          <label class="check"><input type="checkbox" name="features" value="Search">Search</label>
+          <label class="check"><input type="checkbox" name="features" value="Multi-language">Multi-language</label>
+          <label class="check"><input type="checkbox" name="features" value="Newsletter">Newsletter</label>
+          <label class="check"><input type="checkbox" name="features" value="Testimonials">Testimonials</label>
+          <label class="check"><input type="checkbox" name="features" value="Reviews">Reviews</label>
+          <label class="check"><input type="checkbox" name="features" value="API Integration">API Integration</label>
+          <label class="check"><input type="checkbox" name="features" value="Custom Calculator">Custom Calculator</label>
+        </div>
+        <div class="divider"></div>
+        <div class="field"><label>Custom feature(s)</label><textarea name="custom_features"></textarea></div>
+      </div>
+    </section>
+
+    <section class="step" data-step="10">
+      <div class="step-head"><span class="step-number">10 / 15</span><h2>Content & Assets</h2><p>Let us know what is ready and where project assets live.</p></div>
+      <div class="card">
+        <div class="grid">
+          <div class="field"><span class="legend">Is content ready?</span><div class="options">
+            <div class="option"><input id="cr1" type="radio" name="content_ready" value="Yes"><label for="cr1">Yes</label></div>
+            <div class="option"><input id="cr2" type="radio" name="content_ready" value="Partially"><label for="cr2">Partially</label></div>
+            <div class="option"><input id="cr3" type="radio" name="content_ready" value="No"><label for="cr3">No</label></div>
+          </div></div>
+          <div class="field"><span class="legend">Are images ready?</span><div class="options">
+            <div class="option"><input id="ir1" type="radio" name="images_ready" value="Yes"><label for="ir1">Yes</label></div>
+            <div class="option"><input id="ir2" type="radio" name="images_ready" value="Partially"><label for="ir2">Partially</label></div>
+            <div class="option"><input id="ir3" type="radio" name="images_ready" value="No"><label for="ir3">No</label></div>
+          </div></div>
+        </div>
+        <div class="field"><span class="legend">Are videos ready?</span><div class="options">
+          <div class="option"><input id="vr1" type="radio" name="videos_ready" value="Yes"><label for="vr1">Yes</label></div>
+          <div class="option"><input id="vr2" type="radio" name="videos_ready" value="Partially"><label for="vr2">Partially</label></div>
+          <div class="option"><input id="vr3" type="radio" name="videos_ready" value="No"><label for="vr3">No</label></div>
+        </div></div>
+        <div class="grid">
+          <div class="field"><label>Google Drive Link</label><input type="url" name="google_drive"></div>
+          <div class="field"><label>Dropbox Link</label><input type="url" name="dropbox"></div>
+        </div>
+        <div class="field"><label>Other Assets Link</label><input type="url" name="other_assets"></div>
+        <div class="field"><label>Multiple File Upload</label><div class="file"><input type="file" name="project_assets" multiple></div><div class="help">Keep individual files reasonably sized for your Netlify plan.</div></div>
+      </div>
+    </section>
+
+    <section class="step" data-step="11">
+      <div class="step-head"><span class="step-number">11 / 15</span><h2>SEO Requirements</h2><p>Define the search visibility goals.</p></div>
+      <div class="card">
+        <div class="field"><label>Target Keywords</label><textarea name="target_keywords" placeholder="One keyword or phrase per line"></textarea></div>
+        <div class="field"><label>Target Locations</label><textarea name="seo_locations"></textarea></div>
+        <div class="field"><label>Main competitors?</label><textarea name="seo_competitors"></textarea></div>
+        <div class="field"><label>Any SEO goals?</label><textarea name="seo_goals"></textarea></div>
+      </div>
+    </section>
+
+    <section class="step" data-step="12">
+      <div class="step-head"><span class="step-number">12 / 15</span><h2>Technical Information</h2><p>Clarify the current technical setup.</p></div>
+      <div class="card">
+        <div class="grid">
+          <div class="field"><span class="legend">Domain purchased?</span><div class="options">
+            <div class="option"><input id="dp1" type="radio" name="domain_purchased" value="Yes"><label for="dp1">Yes</label></div>
+            <div class="option"><input id="dp2" type="radio" name="domain_purchased" value="No"><label for="dp2">No</label></div>
+            <div class="option"><input id="dp3" type="radio" name="domain_purchased" value="Not sure"><label for="dp3">Not sure</label></div>
+          </div></div>
+          <div class="field"><span class="legend">Hosting purchased?</span><div class="options">
+            <div class="option"><input id="hp1" type="radio" name="hosting_purchased" value="Yes"><label for="hp1">Yes</label></div>
+            <div class="option"><input id="hp2" type="radio" name="hosting_purchased" value="No"><label for="hp2">No</label></div>
+            <div class="option"><input id="hp3" type="radio" name="hosting_purchased" value="Not sure"><label for="hp3">Not sure</label></div>
+          </div></div>
+        </div>
+        <div class="field"><span class="legend">Existing website?</span><div class="options">
+          <div class="option"><input id="ew1" type="radio" name="has_existing_site" value="Yes"><label for="ew1">Yes</label></div>
+          <div class="option"><input id="ew2" type="radio" name="has_existing_site" value="No"><label for="ew2">No</label></div>
+        </div></div>
+        <div class="grid">
+          <div class="field"><label>Domain Name</label><input name="domain_name"></div>
+          <div class="field"><label>Hosting Provider</label><input name="hosting_provider"></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="step" data-step="13">
+      <div class="step-head"><span class="step-number">13 / 15</span><h2>Budget & Timeline</h2><p>Align scope, budget and delivery expectations.</p></div>
+      <div class="card">
+        <div class="field"><span class="legend">Budget</span><div class="options">
+          <div class="option"><input id="bu1" type="radio" name="budget" value="₹5k–₹10k"><label for="bu1">₹5k–₹10k</label></div>
+          <div class="option"><input id="bu2" type="radio" name="budget" value="₹10k–₹25k"><label for="bu2">₹10k–₹25k</label></div>
+          <div class="option"><input id="bu3" type="radio" name="budget" value="₹25k–₹50k"><label for="bu3">₹25k–₹50k</label></div>
+          <div class="option"><input id="bu4" type="radio" name="budget" value="₹50k–₹1L"><label for="bu4">₹50k–₹1L</label></div>
+          <div class="option"><input id="bu5" type="radio" name="budget" value="₹1L+"><label for="bu5">₹1L+</label></div>
+        </div></div>
+        <div class="grid">
+          <div class="field"><label>Preferred Start Date</label><input type="date" name="start_date"></div>
+          <div class="field"><label>Launch Date</label><input type="date" name="launch_date"></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="step" data-step="14">
+      <div class="step-head"><span class="step-number">14 / 15</span><h2>Describe Your Dream Website</h2><p>Paint the complete picture. There are no wrong answers.</p></div>
+      <div class="card">
+        <div class="notice">Imagine you are explaining your perfect website to a world-class designer. Mention colors, style, pages, features, animations, competitors, inspirations, and everything you can think of.</div>
+        <div class="field" style="margin-top:18px"><textarea name="dream_website" class="huge" required placeholder="My dream website would..."></textarea></div>
+      </div>
+    </section>
+
+    <section class="step" data-step="15">
+      <div class="step-head"><span class="step-number">15 / 15</span><h2>Review & Generate Brief</h2><p>Your answers are ready to be turned into a structured project brief.</p></div>
+      <div class="card">
+        <div class="notice">Click <strong>Generate Project Brief</strong> to create a copy-ready planning document from the information above. This is generated locally in your browser; no external AI API is required.</div>
+        <div class="actions"><button type="button" class="btn" id="reviewBack">← Back</button><button type="button" class="btn primary" id="generateBtn">Generate Project Brief →</button></div>
+      </div>
+    </section>
+
+    <div class="actions" id="navActions">
+      <button type="button" class="btn secondary" id="prevBtn">← Back</button>
+      <button type="button" class="btn primary" id="nextBtn">Continue →</button>
+    </div>
+
+    <div class="success" id="success">
+      <div class="success-icon">✓</div>
+      <h2>Discovery complete.</h2>
+      <p style="color:var(--muted)">Your submission has been prepared. Below is the structured brief generated from your answers.</p>
+      <div class="brief-actions">
+        <button type="button" class="btn primary" id="copyBtn">Copy Project Brief</button>
+        <button type="button" class="btn" id="downloadBtn">Download Brief as TXT</button>
+        <button type="button" class="btn" id="printBtn">Print Brief</button>
+        <button type="button" class="btn" id="newBtn">Start New Form</button>
+      </div>
+      <div class="brief" id="briefOutput"></div>
+    </div>
+  </form>
+</main>
+<footer>Client Discovery Form · Built as a single-file Netlify-ready app</footer>
+
+<script>
+const form=document.getElementById('discoveryForm');
+const steps=[...document.querySelectorAll('.step')];
+const total=steps.length;
+let current=0;
+
+const competitors=document.getElementById('competitors');
+for(let i=1;i<=3;i++){
+  competitors.insertAdjacentHTML('beforeend',`
+    <div class="service" style="margin-bottom:${i<3?'16px':'0'}">
+      <div class="service-title" style="margin-bottom:12px">Competitor Website #${i}</div>
+      <div class="field"><label>Website URL</label><input type="url" name="competitor_${i}_url" placeholder="https://"></div>
+      <div class="grid">
+        <div class="field"><label>What do you like?</label><textarea name="competitor_${i}_likes"></textarea></div>
+        <div class="field"><label>What do you dislike?</label><textarea name="competitor_${i}_dislikes"></textarea></div>
+      </div>
+    </div>`);
+}
+
+const services=document.getElementById('services');
+let serviceCount=0;
+function addService(){
+  serviceCount++;
+  const id=serviceCount;
+  services.insertAdjacentHTML('beforeend',`
+    <div class="service" data-service="${id}">
+      <div class="service-top"><span class="service-title">Service ${id}</span><button type="button" class="icon-btn remove-service">Remove</button></div>
+      <div class="grid">
+        <div class="field"><label>Service Name</label><input name="service_${id}_name"></div>
+        <div class="field"><label>Pricing (optional)</label><input name="service_${id}_pricing" placeholder="e.g. ₹15,000"></div>
+      </div>
+      <div class="field"><label>Description</label><textarea name="service_${id}_description"></textarea></div>
+    </div>`);
+}
+addService();
+document.getElementById('addService').addEventListener('click',addService);
+services.addEventListener('click',e=>{
+  if(e.target.classList.contains('remove-service')){
+    e.target.closest('.service').remove();
+  }
+});
+
+function update(){
+  steps.forEach((s,i)=>s.classList.toggle('active',i===current));
+  const pct=Math.round(((current+1)/total)*100);
+  document.getElementById('progressBar').style.width=pct+'%';
+  document.getElementById('progressText').textContent=`Step ${current+1} of ${total}`;
+  document.getElementById('progressPct').textContent=pct+'%';
+  document.getElementById('prevBtn').style.visibility=current===0?'hidden':'visible';
+  document.getElementById('nextBtn').style.display=current===total-1?'none':'block';
+  window.scrollTo({top:0,behavior:'smooth'});
+}
+function validateStep(){
+  const active=steps[current];
+  const required=[...active.querySelectorAll('[required]')];
+  let ok=true;
+  required.forEach(el=>{
+    let valid=true;
+    if(el.type==='radio'){
+      valid=!!active.querySelector(`input[name="${CSS.escape(el.name)}"]:checked`);
+    }else if(el.type==='checkbox'){
+      valid=active.querySelectorAll(`input[name="${CSS.escape(el.name)}"]:checked`).length>0;
+    }else valid=el.checkValidity();
+    el.classList.toggle('invalid',!valid);
+    if(!valid) ok=false;
+  });
+  if(!ok){
+    const first=active.querySelector('.invalid');
+    if(first) first.focus();
+  }
+  return ok;
+}
+document.getElementById('nextBtn').addEventListener('click',()=>{
+  if(validateStep() && current<total-1){current++;update();}
+});
+document.getElementById('prevBtn').addEventListener('click',()=>{
+  if(current>0){current--;update();}
+});
+document.getElementById('reviewBack').addEventListener('click',()=>{current=13;update();});
+
+function values(name){
+  return [...form.querySelectorAll(`[name="${CSS.escape(name)}"]:checked`)].map(x=>x.value);
+}
+function val(name){
+  const el=form.querySelector(`[name="${CSS.escape(name)}"]`);
+  return el?.value?.trim()||'Not provided';
+}
+function listOrNot(arr){return arr.length?arr.join(', '):'Not specified';}
+function servicesText(){
+  const rows=[...services.querySelectorAll('.service')];
+  if(!rows.length)return 'No services specified.';
+  return rows.map((r,i)=>{
+    const inputs=r.querySelectorAll('input,textarea');
+    return `${i+1}. ${inputs[0]?.value||'Unnamed service'}${inputs[1]?.value?` — ${inputs[1].value}`:''}${inputs[2]?.value?` | Pricing: ${inputs[2].value}`:''}`;
+  }).join('\n');
+}
+function competitorText(){
+  return [1,2,3].map(i=>`${i}. ${val(`competitor_${i}_url`)}
+   Likes: ${val(`competitor_${i}_likes`)}
+   Dislikes: ${val(`competitor_${i}_dislikes`)}`).join('\n');
+}
+function generateBrief(){
+  return `WEBSITE PROJECT DISCOVERY BRIEF
+=================================
+Generated: ${new Date().toLocaleString()}
+
+1. BUSINESS SUMMARY
+Company: ${val('company_name')}
+Industry / Niche: ${val('industry')}
+Contact: ${val('contact_person')}
+Email: ${val('email')}
+Phone: ${val('phone')}
+Location: ${val('city')}, ${val('country')}
+Existing Website: ${val('existing_website')}
+Social Links:
+${val('social_links')}
+
+Business Description:
+${val('business_description')}
+
+2. WEBSITE GOALS
+Primary Purpose: ${val('website_purpose')}
+Expected Results:
+${val('expected_results')}
+
+3. TARGET AUDIENCE
+Target Country: ${val('target_country')}
+Target Cities: ${val('target_cities')}
+Age Group: ${val('target_age')}
+Business Model: ${val('business_model')}
+Ideal Customer:
+${val('ideal_customer')}
+Customer Problems:
+${val('customer_problems')}
+Why Customers Should Choose Them:
+${val('why_choose_you')}
+
+4. BRANDING
+Brand Colors: ${val('brand_colors')}
+Fonts: ${val('brand_fonts')}
+Brand Personality:
+${val('brand_personality')}
+Desired Visitor Feelings:
+${val('visitor_feelings')}
+Brand Traits: ${listOrNot(values('brand_traits'))}
+Logo: ${form.querySelector('[name="logo"]')?.files?.length?'Uploaded':'Not uploaded'}
+Brand Guidelines: ${form.querySelector('[name="brand_guidelines"]')?.files?.length?'Uploaded':'Not uploaded'}
+
+5. COMPETITOR ANALYSIS
+${competitorText()}
+
+6. DESIGN DIRECTION
+Preferred Style: ${listOrNot(values('design_style'))}
+Theme: ${val('theme')}
+Animation Level: ${val('animation_level')}
+Design Description:
+${val('design_description')}
+
+7. WEBSITE STRUCTURE
+Required Pages: ${listOrNot(values('pages'))}
+Custom Pages: ${val('custom_pages')}
+
+8. SERVICES
+${servicesText()}
+
+9. FEATURES
+Selected Features: ${listOrNot(values('features'))}
+Custom Features:
+${val('custom_features')}
+
+10. CONTENT & ASSETS
+Content Ready: ${val('content_ready')}
+Images Ready: ${val('images_ready')}
+Videos Ready: ${val('videos_ready')}
+Google Drive: ${val('google_drive')}
+Dropbox: ${val('dropbox')}
+Other Assets: ${val('other_assets')}
+Project Files: ${form.querySelector('[name="project_assets"]')?.files?.length||0} file(s) selected
+
+11. SEO REQUIREMENTS
+Target Keywords:
+${val('target_keywords')}
+Target Locations:
+${val('seo_locations')}
+Main Competitors:
+${val('seo_competitors')}
+SEO Goals:
+${val('seo_goals')}
+
+12. TECHNICAL REQUIREMENTS
+Domain Purchased: ${val('domain_purchased')}
+Hosting Purchased: ${val('hosting_purchased')}
+Existing Website: ${val('has_existing_site')}
+Domain: ${val('domain_name')}
+Hosting Provider: ${val('hosting_provider')}
+
+13. BUDGET & TIMELINE
+Budget: ${val('budget')}
+Preferred Start: ${val('start_date')}
+Launch Date: ${val('launch_date')}
+
+14. DREAM WEBSITE
+${val('dream_website')}
+
+15. DEVELOPMENT ROADMAP
+Phase 1 — Discovery & Scope
+- Confirm business goals, audience, sitemap, features and success criteria.
+- Finalise content/assets and technical constraints.
+
+Phase 2 — UX & Information Architecture
+- Build sitemap and page hierarchy.
+- Define user journeys, wireframes and conversion paths.
+
+Phase 3 — UI Design
+- Establish typography, color, components, responsive layouts and visual direction.
+- Review key desktop/mobile screens.
+
+Phase 4 — Development
+- Implement responsive pages, interactions, forms and requested integrations.
+- Connect approved content/assets and technical services.
+
+Phase 5 — QA & Launch
+- Test responsive behavior, forms, accessibility basics, performance and SEO fundamentals.
+- Connect domain/hosting and launch after approval.
+
+16. SITEMAP
+${listOrNot(values('pages'))}${val('custom_pages')!=='Not provided'?`\nCustom: ${val('custom_pages')}`:''}
+
+17. RECOMMENDED TECH STACK
+Frontend: Semantic HTML5, modern CSS, JavaScript.
+Architecture: Component-style reusable sections and clean responsive CSS.
+Animation: CSS transitions/animations; GSAP or equivalent only if the approved scope needs advanced motion.
+Forms: Netlify Forms or the selected production form backend.
+SEO: Semantic markup, metadata, Open Graph, sitemap.xml, robots.txt and structured data where relevant.
+Performance: Optimised images, lazy loading, minimal dependencies and sensible animation budgets.
+CMS / Backend: Add only if the selected features require dynamic content, authentication, dashboards, payments or API integrations.
+
+18. AI HANDOFF INSTRUCTION
+Use this document as the source of truth for planning the website. Do not invent business facts, client claims, testimonials, statistics, certifications or portfolio results. Convert the discovery data into:
+- final sitemap and navigation
+- page-by-page content requirements
+- UX/user journeys
+- component inventory
+- responsive behavior
+- SEO plan
+- technical architecture
+- development milestones
+- content/asset checklist
+- open questions only where the client left a material gap.`;
+}
+
+const generateBtn=document.getElementById('generateBtn');
+generateBtn.addEventListener('click',async()=>{
+  if(!validateStep())return;
+  const brief=generateBrief();
+  document.getElementById('briefOutput').textContent=brief;
+  document.getElementById('navActions').style.display='none';
+  document.querySelectorAll('.step').forEach(s=>s.style.display='none');
+  document.querySelector('.intro').style.display='none';
+  document.getElementById('success').classList.add('show');
+  window.scrollTo({top:0,behavior:'smooth'});
+  // Submit to Netlify after generating the local brief.
+  try{
+    const data=new FormData(form);
+    data.set('generated_ai_brief',brief);
+    const response=await fetch('/',{method:'POST',headers:{'Content-Type':'application/x-www-form-urlencoded'},body:new URLSearchParams(data).toString()});
+    if(!response.ok) console.warn('Netlify submission response:',response.status);
+  }catch(err){console.warn('Submission could not be sent automatically.',err);}
+});
+
+document.getElementById('copyBtn').addEventListener('click',async()=>{
+  const text=document.getElementById('briefOutput').textContent;
+  try{await navigator.clipboard.writeText(text);document.getElementById('copyBtn').textContent='Copied ✓';setTimeout(()=>document.getElementById('copyBtn').textContent='Copy Project Brief',1800);}
+  catch(e){alert('Copy failed. Please select and copy the brief manually.');}
+});
+document.getElementById('downloadBtn').addEventListener('click',()=>{
+  const blob=new Blob([document.getElementById('briefOutput').textContent],{type:'text/plain;charset=utf-8'});
+  const a=document.createElement('a');a.href=URL.createObjectURL(blob);a.download='website-project-discovery-brief.txt';a.click();URL.revokeObjectURL(a.href);
+});
+document.getElementById('printBtn').addEventListener('click',()=>window.print());
+document.getElementById('newBtn').addEventListener('click',()=>location.reload());
+
+update();
+</script>
+</body>
+</html>

@@ -1,0 +1,393 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="style.css">
+  <meta name="theme-color" content="#0b0b0d">
+  <meta name="description"
+    content="Shivam Jha — Junior Frontend Developer & UI/UX Designer focused on responsive interfaces, creative web design and interactive digital experiences.">
+  <meta property="og:title" content="Shivam Jha — Junior Frontend Developer & UI/UX Designer">
+  <meta property="og:description"
+    content="Portfolio of Shivam Jha, focused on frontend development, UI/UX design, creative web design and interactive digital experiences.">
+  <meta property="og:type" content="website">
+  <meta property="og:image" content="assets/profile.png">
+  <meta property="og:image:alt" content="Portrait of Shivam Jha">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Shivam Jha — Junior Frontend Developer & UI/UX Designer">
+  <meta name="twitter:description"
+    content="Portfolio of Shivam Jha, focused on frontend development, UI/UX design, creative web design and interactive digital experiences.">
+  <meta name="twitter:image" content="assets/profile.png">
+  <link rel="canonical" href="./">
+  <link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
+  <meta name="twitter:image" content="assets/profile.png">
+  <link rel="canonical" href="/">
+
+  <link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap"
+    rel="stylesheet">
+  <title>Shivam Jha — Junior Frontend Developer & UI/UX Designer</title>
+</head>
+
+<body>
+  <div class="loader" id="loader" aria-hidden="true">
+    <div class="loader__top"><span>SJ / 01</span><span>Portfolio 2026</span></div>
+    <div class="loader__center"><span class="loader__word">SHIVAM JHA</span><span class="loader__status">Preparing the
+        interface</span></div>
+    <div class="loader__bar"><span id="loaderBar"></span></div>
+  </div>
+
+  <div class="cursor" aria-hidden="true"><span></span></div>
+  <div class="noise" aria-hidden="true"></div>
+  <div class="scroll-progress" aria-hidden="true"><span id="scrollProgress"></span></div>
+
+  <header class="site-header" id="siteHeader">
+    <a class="brand" href="#home" data-magnetic aria-label="Shivam Jha home">
+      <span class="brand__mark">SJ</span>
+      <span class="brand__name">Shivam Jha</span>
+    </a>
+    <button class="menu-toggle" id="menuToggle" type="button" aria-label="Open menu" aria-expanded="false"
+      aria-controls="siteNav">
+      <span></span><span></span>
+    </button>
+    <nav class="site-nav" id="siteNav" aria-label="Primary navigation">
+      <a href="#about">About</a>
+      <a href="#work">Work</a>
+      <a href="#skills">Skills</a>
+      <a href="#journey">Journey</a>
+      <a href="#contact">Contact</a>
+      <a class="nav-cta" href="brief/index.html">Start a Project <span>↗</span></a>
+    </nav>
+  </header>
+
+  <main>
+    <section class="hero section-pad" id="home" data-section>
+      <div class="hero__gridline" aria-hidden="true"></div>
+      <div class="hero__meta reveal-fade">
+        <span>01 — Introduction</span>
+        <span>Frontend / UI / Motion</span>
+      </div>
+      <div class="hero__copy">
+        <p class="eyebrow reveal-up"><span class="eyebrow__dot"></span> Open to junior opportunities</p>
+        <h1 class="hero__title" aria-label="Shivam Jha">
+          <span class="hero__title-line reveal-up">SHIVAM</span>
+          <span class="hero__title-line hero__title-line--indent reveal-up"><em>JHA.</em></span>
+        </h1>
+        <p class="hero__role reveal-up">Junior Frontend Developer &amp; UI/UX Designer</p>
+        <p class="hero__lead reveal-up">I build modern, responsive websites with clean UI, smooth interactions, and
+          thoughtful user experiences.</p>
+        <div class="hero__actions reveal-up">
+          <a class="btn btn--solid" href="#work" data-magnetic>View selected work <span>↘</span></a>
+          <a class="btn btn--ghost" href="brief/index.html" data-magnetic>Start a project <span>↗</span></a>
+        </div>
+        <div class="hero__socials reveal-up">
+          <a href="https://www.linkedin.com/in/shivam-kumar-jha-b407b33a6" target="_blank" rel="noopener"
+            data-cursor-label="LinkedIn">LinkedIn</a>
+          <a href="mailto:skj30890@gmail.com" data-cursor-label="Email">Email</a>
+          <a href="https://wa.me/918709065302" target="_blank" rel="noopener" data-cursor-label="WhatsApp">WhatsApp</a>
+        </div>
+      </div>
+
+      <div class="hero__visual reveal-fade" data-parallax>
+        <div class="hero__visual-grid" aria-hidden="true"></div>
+        <div class="hero__orbit hero__orbit--one" aria-hidden="true"></div>
+        <div class="hero__orbit hero__orbit--two" aria-hidden="true"></div>
+        <span class="hero__code-label hero__code-label--top" aria-hidden="true">&lt;design /&gt;</span>
+        <span class="hero__code-label hero__code-label--side" aria-hidden="true">01 / 06</span>
+        <div class="hero__frame">
+          <span class="frame-corner frame-corner--tl"></span><span class="frame-corner frame-corner--br"></span>
+          <div class="hero__portrait-wrap">
+            <div class="hero__portrait-wash" aria-hidden="true"></div>
+            <div class="hero__sweep" aria-hidden="true"></div>
+            <img class="hero__portrait" src="assets/profile.png" alt="Shivam Jha portrait" width="441" height="565"
+              fetchpriority="high">
+            <div class="hero__scanline" aria-hidden="true"></div>
+            <div class="hero__portrait-index" aria-hidden="true"><span>SHIVAM JHA</span><span>FRONTEND / UI</span></div>
+          </div>
+          <div class="hero__badge hero__badge--top"><span>PROFILE / 01</span><span>UI + CODE</span></div>
+          <div class="hero__badge hero__badge--bottom"><span>Patna, India</span><span>scroll ↓</span></div>
+        </div>
+        <div class="hero__floating hero__floating--top" aria-hidden="true"><span>INTERFACE</span><strong>01</strong>
+        </div>
+        <div class="hero__floating hero__floating--bottom" aria-hidden="true"><span>BUILD / MOVE / REFINE</span><i></i>
+        </div>
+      </div>
+      <div class="hero__foot reveal-fade"><span>Scroll to explore</span><span class="hero__line"></span><span>01 /
+          09</span></div>
+    </section>
+
+    <section class="about section-pad" id="about" data-section>
+      <div class="section-kicker reveal-up"><span>02 — About</span><span>Design thinking, built into code.</span></div>
+      <div class="about__grid">
+        <div>
+          <h2 class="display-title reveal-up">Design decisions first.<br><em>Implementation follows.</em></h2>
+        </div>
+        <div class="about__copy">
+          <p class="large-copy reveal-up">I’m Shivam, a junior frontend developer and UI/UX designer. I work with HTML,
+            CSS, JavaScript, React, and animation technologies such as GSAP to turn ideas into clear, engaging
+            interfaces.</p>
+          <p class="body-copy reveal-up">I care about responsive design, accessibility, and user experience, and I keep
+            improving through real-world projects and regular practice.</p>
+          <div class="about__facts reveal-up">
+            <div><span>FOCUS</span><strong>Frontend + UI/UX</strong></div>
+            <div><span>METHOD</span><strong>Learn → Practice → Build</strong></div>
+            <div><span>APPROACH</span><strong>Responsive + interactive</strong></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="work section-pad" id="work" data-section>
+      <div class="section-kicker reveal-up"><span>03 — Selected Work</span><span>Built to learn. Designed to feel
+          real.</span></div>
+      <div class="work__intro reveal-up">
+        <p>Six portfolio builds from the current archive, presented as one continuous digital exhibition.</p>
+        <div class="work__hint"><span>Scroll / select</span><i></i></div>
+      </div>
+      <div class="work__layout">
+        <div class="work__index" id="projectIndex" aria-label="Projects">
+          <button class="project-item is-active" type="button" data-project="0">
+            <span class="project-item__num">01</span><span class="project-item__name">Brand360 Website</span><span
+              class="project-item__type">Business / Landing</span>
+          </button>
+          <button class="project-item" type="button" data-project="1">
+            <span class="project-item__num">02</span><span class="project-item__name">DriveBharat</span><span
+              class="project-item__type">Car Rental / UI</span>
+          </button>
+          <button class="project-item" type="button" data-project="2">
+            <span class="project-item__num">03</span><span class="project-item__name">Velora</span><span
+              class="project-item__type">Fashion / Editorial</span>
+          </button>
+          <button class="project-item" type="button" data-project="3">
+            <span class="project-item__num">04</span><span class="project-item__name">GlowUp Salon</span><span
+              class="project-item__type">Beauty / Service</span>
+          </button>
+          <button class="project-item" type="button" data-project="4">
+            <span class="project-item__num">05</span><span class="project-item__name">Radiant Glow</span><span
+              class="project-item__type">Skincare / Story</span>
+          </button>
+          <button class="project-item" type="button" data-project="5">
+            <span class="project-item__num">06</span><span class="project-item__name">Ecommerce</span><span
+              class="project-item__type">Commerce / UI</span>
+          </button>
+        </div>
+
+        <div class="work__stage" id="workStage">
+          <div class="browser-frame">
+            <div class="browser-topbar">
+              <div class="browser-dots"><i></i><i></i><i></i></div>
+              <div class="browser-url" id="browserUrl">project / brand360.html</div>
+              <a class="browser-open" id="browserOpen" href="project-pages/brand360.html" target="_blank" rel="noopener"
+                aria-label="Open Brand360 project">Open ↗</a>
+            </div>
+            <div class="browser-screen" aria-live="polite">
+              <div class="browser-loading" id="browserLoading"><span></span>Loading project preview…</div>
+              <iframe id="projectFrame" title="Project preview" loading="lazy"></iframe>
+            </div>
+          </div>
+          <div class="work__caption">
+            <div><span class="micro-label">CURRENT PROJECT</span>
+              <h3 id="projectTitle">Brand360 Website</h3>
+            </div>
+            <div class="work__meta" id="projectMeta">Frontend Developer — Personal Project<br>HTML · CSS · JavaScript ·
+              Font Awesome</div>
+          </div>
+          <div class="work__details" id="projectDetails">Responsive business landing page built to practice modern
+            layout, UI composition, and smooth interactions.</div>
+        </div>
+      </div>
+      <div class="related-build reveal-up">
+        <div class="related-build__mark"><img src="ora-vfx/assets/media/ora logo.png" alt="ORA VFX logo" width="763"
+            height="327" loading="lazy"></div>
+        <div class="related-build__copy"><span class="micro-label">ADDITIONAL BUILD IN THE UPLOADED PACKAGE</span>
+          <h3>ORA VFX</h3>
+          <p>A complete cinematic creative-services site is also included in the source archive, with original work
+            media, portfolio filtering, a before/after visual comparison, FAQ, enquiry flow, and legal pages.</p>
+        </div>
+        <a class="text-link" href="ora-vfx/index.html" target="_blank" rel="noopener">Open ORA VFX ↗</a>
+      </div>
+    </section>
+
+    <section class="skills section-pad" id="skills" data-section>
+      <div class="section-kicker reveal-up"><span>04 — Core Skills</span><span>A practical toolkit.</span></div>
+      <div class="skills__head">
+        <h2 class="display-title reveal-up">Tools become useful<br><em>when the interface does.</em></h2>
+        <p class="body-copy reveal-up">A growing toolkit built through projects, practice, and continuous learning.</p>
+      </div>
+      <div class="skills__list">
+        <div class="skill-row reveal-up"><span>01</span><strong>Frontend Development</strong>
+          <p>HTML5, CSS3, JavaScript, React, responsive layouts, and accessible structure.</p>
+        </div>
+        <div class="skill-row reveal-up"><span>02</span><strong>Responsive UI</strong>
+          <p>CSS layouts, Tailwind CSS, reusable UI patterns, and mobile-first styling.</p>
+        </div>
+        <div class="skill-row reveal-up"><span>03</span><strong>Motion &amp; Interaction</strong>
+          <p>JavaScript interactions, GSAP animations, scroll effects, and thoughtful transitions.</p>
+        </div>
+        <div class="skill-row reveal-up"><span>04</span><strong>UI/UX &amp; Design</strong>
+          <p>Figma, wireframing, prototyping, UI composition, and user-focused visual decisions.</p>
+        </div>
+        <div class="skill-row reveal-up"><span>05</span><strong>Tools</strong>
+          <p>Git, GitHub, VS Code, and a practical frontend workflow.</p>
+        </div>
+        <div class="skill-row reveal-up"><span>06</span><strong>Creative Tools</strong>
+          <p>Photoshop and Illustrator for visual exploration and supporting graphics.</p>
+        </div>
+      </div>
+      <div class="tool-strip reveal-up" aria-label="Technology stack">
+        <span>HTML5</span><span>CSS3</span><span>JavaScript</span><span>React</span><span>Tailwind
+          CSS</span><span>GSAP</span><span>Git</span><span>GitHub</span><span>VS
+          Code</span><span>Figma</span><span>Photoshop</span><span>Illustrator</span>
+      </div>
+    </section>
+
+    <section class="services section-pad" id="services" data-section>
+      <div class="section-kicker reveal-up"><span>05 — What I Build</span><span>From interface to implementation.</span>
+      </div>
+      <div class="services__grid">
+        <article class="service-panel reveal-up"><span>01</span>
+          <h3>UI/UX Design</h3>
+          <p>Wireframes, visual hierarchy, reusable components, and clear user flows for web interfaces.</p>
+        </article>
+        <article class="service-panel reveal-up"><span>02</span>
+          <h3>Website Design</h3>
+          <p>Responsive website layouts with considered typography, spacing, and visual hierarchy.</p>
+        </article>
+        <article class="service-panel reveal-up"><span>03</span>
+          <h3>Landing Page Design</h3>
+          <p>Landing pages built to practice composition, responsive behavior, and focused calls to action.</p>
+        </article>
+        <article class="service-panel reveal-up"><span>04</span>
+          <h3>Frontend Development</h3>
+          <p>Frontend implementations using HTML, CSS, JavaScript, React, and animation tools such as GSAP.</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="journey section-pad" id="journey" data-section>
+      <div class="section-kicker reveal-up"><span>06 — Learning &amp; Building</span><span>This is not employment
+          history.</span></div>
+      <div class="journey__top">
+        <h2 class="display-title reveal-up">Learning → Practicing<br><em>→ Building → Improving</em></h2>
+        <p class="large-copy reveal-up">My current development journey is shaped by learning, practice, and building
+          real personal projects.</p>
+      </div>
+      <div class="journey__steps">
+        <article class="journey-step reveal-up"><span>01</span>
+          <h3>Frontend Development</h3>
+          <p>Learning and building responsive interfaces with HTML, CSS, JavaScript, React, and GSAP.</p>
+        </article>
+        <article class="journey-step reveal-up"><span>02</span>
+          <h3>UI/UX &amp; Graphic Design</h3>
+          <p>Practicing wireframing, prototyping, visual systems, and clear user-focused layouts.</p>
+        </article>
+        <article class="journey-step reveal-up"><span>03</span>
+          <h3>Personal Projects</h3>
+          <p>Applying what I learn through website concepts, interactive UI, responsive layouts, and animation
+            experiments.</p>
+        </article>
+      </div>
+      <div class="journey__line" aria-hidden="true"><span id="journeyLine"></span></div>
+    </section>
+
+    <section class="credentials section-pad" id="credentials" data-section>
+      <div class="section-kicker reveal-up"><span>07 — Learning Focus</span><span>Still learning. Still building.</span>
+      </div>
+      <div class="credentials__grid">
+        <div>
+          <h2 class="display-title reveal-up">Credentials<br><em>with context.</em></h2>
+          <p class="body-copy reveal-up">Current areas of coursework, practice, and continued development from the
+            portfolio and resume files.</p>
+          <a class="text-link reveal-up" href="assets/resume.jpg" target="_blank" rel="noopener">Open full resume ↗</a>
+        </div>
+        <div class="credential-list">
+          <article class="credential reveal-up"><span>2025 — 2026</span><strong>DGWA+ Course (UI/UX Design &amp; Web
+              Development)</strong><small>MAAC Patna</small></article>
+          <article class="credential reveal-up"><span>Certification</span><strong>Responsive Web
+              Design</strong><small>FreeCodeCamp</small></article>
+          <article class="credential reveal-up"><span>Certification</span><strong>JavaScript
+              (ES6+)</strong><small>Udemy</small></article>
+          <article class="credential reveal-up"><span>Certification</span><strong>Frontend
+              Development</strong><small>Udemy</small></article>
+          <article class="credential reveal-up"><span>Practice</span><strong>Animation Practice</strong><small>GSAP,
+              scroll interactions, motion principles, and smooth web transitions.</small></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="resume-panel section-pad" id="resume" data-section>
+      <div class="resume-panel__frame reveal-up">
+        <div class="resume-panel__copy">
+          <span class="micro-label">08 — PROFILE / RESUME</span>
+          <h2>One page.<br><em>Everything in context.</em></h2>
+          <p>The uploaded resume contains contact details, skills, projects, education, certifications, strengths, and
+            interests.</p>
+          <a class="btn btn--solid" href="assets/resume.jpg" target="_blank" rel="noopener" data-magnetic>View resume
+            ↗</a>
+        </div>
+        <div class="resume-panel__image"><img src="assets/resume.jpg" alt="Shivam Kumar Jha resume" loading="lazy">
+        </div>
+      </div>
+    </section>
+
+    <section class="contact section-pad" id="contact" data-section>
+      <div class="section-kicker reveal-up"><span>09 — Contact</span><span>Let's build something together.</span></div>
+      <div class="contact__hero">
+        <h2 class="display-title reveal-up">Have a project or<br><em>an opportunity?</em></h2>
+        <p class="large-copy reveal-up">I am open to Junior Frontend Developer roles, internships, and freelance
+          projects.</p>
+      </div>
+      <div class="contact__grid">
+        <div class="contact__links reveal-up">
+          <a class="contact-link"
+            href="mailto:skj30890@gmail.com"><span>Email</span><strong>skj30890@gmail.com</strong><i>↗</i></a>
+          <a class="contact-link" href="https://www.linkedin.com/in/shivam-kumar-jha-b407b33a6" target="_blank"
+            rel="noopener"><span>LinkedIn</span><strong>shivam-kumar-jha-b407b33a6</strong><i>↗</i></a>
+          <a class="contact-link" href="https://wa.me/918709065302" target="_blank"
+            rel="noopener"><span>WhatsApp</span><strong>+91 8709065302</strong><i>↗</i></a>
+          <div class="contact-link contact-link--static"><span>Location</span><strong>Patna, Bihar, India</strong></div>
+        </div>
+        <div class="contact__cta reveal-up">
+          <p class="micro-label">CLIENT DISCOVERY</p>
+          <h3>Start with the brief.</h3>
+          <p>The uploaded discovery form already turns project answers into a structured planning brief. Keep the full
+            form separate so it stays focused and easy to complete.</p>
+          <a class="btn btn--solid" href="brief/index.html" data-magnetic>Open project brief <span>↗</span></a>
+          <a class="text-link" href="mailto:skj30890@gmail.com?subject=Portfolio%20enquiry">Email directly ↗</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="final-cta" aria-label="Final call to action">
+      <div class="final-cta__inner reveal-up">
+        <span class="micro-label">SHIVAM JHA</span>
+        <h2>Frontend development.<br><em>UI/UX with intent.</em></h2>
+        <a class="btn btn--solid" href="brief/index.html" data-magnetic>Start a project ↗</a>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div><strong>SJ</strong><span>Shivam Jha</span></div>
+    <div><span>Junior Frontend Developer &amp; UI/UX Designer</span><span>© 2026 Shivam Jha</span></div>
+    <div><a href="#home">Back to top ↑</a></div>
+  </footer>
+
+  <noscript>
+    <div class="noscript-note">This portfolio works without JavaScript, but the project preview and motion system are
+      simplified.</div>
+  </noscript>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.13.0/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.13.0/ScrollTrigger.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/lenis@1.3.8/dist/lenis.min.js"></script>
+  <script src="script.js"></script>
+</body>
+
+</html>

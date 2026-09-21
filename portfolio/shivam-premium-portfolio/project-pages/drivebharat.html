@@ -1,0 +1,826 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>DriveBharat | Luxury Indian Car Rentals</title>
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Ccircle cx='12' cy='12' r='10' fill='%232563eb'/%3E%3Cpath d='M4 14L6 7H18L20 14H18M6 14V17H8V14M16 14V17H18V14M8 7V4H16V7' stroke='%23fff' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #f8fafc;
+      --surface: #ffffff;
+      --text: #102a43;
+      --muted: #617d98;
+      --primary: #2563eb;
+      --primary-strong: #1d4ed8;
+      --success: #16a34a;
+      --border: #e2e8f0;
+      --radius: 24px;
+      --shadow: 0 24px 80px rgba(16, 42, 67, 0.08);
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+    }
+
+    img {
+      display: block;
+      max-width: 100%;
+    }
+
+    button,
+    input,
+    select {
+      font: inherit;
+    }
+
+    .page {
+      width: min(1180px, 94%);
+      margin: 0 auto;
+    }
+
+    header {
+      padding: 28px 0 16px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+
+    nav {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 18px;
+      align-items: center;
+      justify-content: center;
+      opacity: 0;
+      transform: translateY(-10px);
+      animation: navFadeIn 0.55s ease forwards;
+      animation-delay: 0.2s;
+    }
+
+    nav a {
+      color: var(--muted);
+      text-decoration: none;
+      position: relative;
+      transition: color 0.25s ease, transform 0.25s ease;
+    }
+
+    nav a::after {
+      content: '';
+      position: absolute;
+      left: 0;
+      bottom: -4px;
+      width: 100%;
+      height: 2px;
+      background: var(--primary);
+      transform: scaleX(0);
+      transform-origin: left;
+      transition: transform 0.25s ease;
+    }
+
+    nav a:hover {
+      color: var(--text);
+      transform: translateY(-2px);
+    }
+
+    nav a:hover::after {
+      transform: scaleX(1);
+    }
+
+    .brand {
+      font-weight: 700;
+      font-size: 1.4rem;
+      letter-spacing: -0.03em;
+    }
+
+    @keyframes navFadeIn {
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .brand span {
+      color: var(--primary);
+    }
+
+    nav {
+      display: flex;
+      gap: 24px;
+      flex-wrap: wrap;
+    }
+
+    nav a {
+      color: var(--muted);
+      text-decoration: none;
+      transition: color 0.2s ease;
+    }
+
+    nav a:hover {
+      color: var(--text);
+    }
+
+    .hero {
+      padding: 60px 0 48px;
+      display: grid;
+      grid-template-columns: minmax(0, 1.05fr) 1fr;
+      gap: 40px;
+      align-items: center;
+    }
+
+    .hero-copy {
+      max-width: 560px;
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 18px;
+      font-size: 0.9rem;
+      color: var(--primary);
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.15em;
+    }
+
+    .eyebrow::before {
+      content: '';
+      width: 32px;
+      height: 2px;
+      background: var(--primary);
+      display: inline-block;
+    }
+
+    .hero-title {
+      font-size: clamp(2.8rem, 5vw, 4.4rem);
+      line-height: 0.95;
+      margin-bottom: 20px;
+    }
+
+    .hero-subtitle {
+      color: var(--muted);
+      font-size: 1.05rem;
+      margin-bottom: 28px;
+    }
+
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 16px;
+    }
+
+    .btn {
+      border: none;
+      border-radius: 999px;
+      padding: 14px 24px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: transform 0.22s cubic-bezier(0.3, 0.7, 0.4, 1), box-shadow 0.22s ease, background-color 0.22s ease, filter 0.22s ease;
+      will-change: transform, box-shadow;
+    }
+
+    .btn-primary {
+      background: linear-gradient(135deg, var(--primary), #3c73ff);
+      color: #fff;
+      box-shadow: 0 18px 40px rgba(37, 99, 235, 0.18);
+    }
+
+    .btn-secondary {
+      background: rgba(37, 99, 235, 0.08);
+      color: var(--primary);
+    }
+
+    .btn:hover {
+      transform: translateY(-2px) scale(1.01);
+      box-shadow: 0 24px 50px rgba(37, 99, 235, 0.18);
+    }
+
+    .btn:active {
+      transform: translateY(0) scale(0.98);
+      box-shadow: 0 12px 24px rgba(37, 99, 235, 0.16);
+    }
+
+    .btn:focus-visible {
+      outline: 3px solid rgba(37, 99, 235, 0.22);
+      outline-offset: 4px;
+    }
+
+    .hero-visual {
+      position: relative;
+      overflow: hidden;
+      border-radius: 32px;
+      background: linear-gradient(180deg, rgba(37, 99, 235, 0.15), rgba(255,255,255,0));
+      box-shadow: var(--shadow);
+    }
+
+    .hero-visual img {
+      border-radius: 32px;
+      aspect-ratio: 4 / 3;
+      object-fit: cover;
+    }
+
+    .stats {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 18px;
+      margin-top: 34px;
+    }
+
+    .reveal {
+      opacity: 0;
+      transform: translateY(30px);
+      transition: opacity 0.8s ease, transform 0.8s ease;
+      will-change: opacity, transform;
+    }
+
+    .reveal.active {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .reveal.delay-1 {
+      transition-delay: 0.12s;
+    }
+
+    .reveal.delay-2 {
+      transition-delay: 0.22s;
+    }
+
+    .reveal.delay-3 {
+      transition-delay: 0.32s;
+    }
+
+    .stat {
+      background: rgba(255,255,255,0.9);
+      border: 1px solid rgba(226,232,240,0.9);
+      padding: 22px;
+      border-radius: 20px;
+      text-align: center;
+      box-shadow: 0 16px 30px rgba(16, 42, 67, 0.05);
+    }
+
+    .stat strong {
+      display: block;
+      font-size: 1.75rem;
+      margin-bottom: 8px;
+    }
+
+    .section {
+      padding: 64px 0;
+    }
+
+    .section-title {
+      text-align: center;
+      font-size: 2rem;
+      margin-bottom: 24px;
+    }
+
+    .section-subtitle {
+      max-width: 720px;
+      margin: 0 auto;
+      color: var(--muted);
+      text-align: center;
+      line-height: 1.8;
+    }
+
+    .fleet-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 24px;
+      margin-top: 36px;
+    }
+
+    .card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 28px;
+      box-shadow: 0 18px 40px rgba(16, 42, 67, 0.06);
+      overflow: hidden;
+    }
+
+    .card img {
+      width: 100%;
+      aspect-ratio: 4 / 3;
+      object-fit: cover;
+    }
+
+    .card-body {
+      padding: 22px;
+    }
+
+    .card-title {
+      font-size: 1.15rem;
+      margin-bottom: 10px;
+    }
+
+    .card-text {
+      color: var(--muted);
+      margin-bottom: 18px;
+    }
+
+    .card-meta {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 12px;
+      font-weight: 600;
+      color: var(--text);
+    }
+
+    .card-meta span {
+      font-size: 0.95rem;
+    }
+
+    .booking-panel {
+      background: linear-gradient(180deg, #ffffff 0%, #eef5ff 100%);
+      border-radius: 32px;
+      padding: 36px;
+      box-shadow: var(--shadow);
+      width: 100%;
+      min-width: 0;
+    }
+
+    .booking-layout {
+      display: grid;
+      grid-template-columns: 1.4fr 1fr;
+      gap: 32px;
+      align-items: start;
+    }
+
+    .booking-panel h3 {
+      margin-bottom: 16px;
+      font-size: 1.35rem;
+    }
+
+    .form-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 16px;
+    }
+
+    .field {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+
+    .field label {
+      font-size: 0.95rem;
+      color: var(--text);
+    }
+
+    .field input,
+    .field select {
+      border: 1px solid var(--border);
+      background: #fff;
+      border-radius: 16px;
+      padding: 14px 16px;
+      color: var(--text);
+      outline: none;
+      transition: border-color 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    .field input:focus,
+    .field select:focus {
+      border-color: var(--primary);
+      box-shadow: 0 0 0 4px rgba(37, 99, 235, 0.1);
+    }
+
+    .booking-submit {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      margin-top: 18px;
+      flex-wrap: wrap;
+    }
+
+    .booking-submit .btn {
+      min-width: 190px;
+    }
+
+    .features {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 22px;
+      margin-top: 32px;
+    }
+
+    .feature-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 24px;
+      padding: 26px;
+      box-shadow: 0 18px 35px rgba(16, 42, 67, 0.05);
+    }
+
+    .feature-card h4 {
+      margin-bottom: 10px;
+      font-size: 1.1rem;
+    }
+
+    .feature-card p {
+      color: var(--muted);
+      line-height: 1.75;
+    }
+
+    .testimonial-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 22px;
+      margin-top: 32px;
+    }
+
+    .testimonial {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 26px;
+      padding: 24px;
+      box-shadow: 0 14px 32px rgba(16, 42, 67, 0.05);
+    }
+
+    .testimonial p {
+      color: var(--muted);
+      margin-bottom: 18px;
+    }
+
+    .testimonial-meta {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .avatar {
+      width: 42px;
+      height: 42px;
+      border-radius: 50%;
+      background: var(--primary);
+      color: #fff;
+      display: grid;
+      place-items: center;
+      font-weight: 700;
+    }
+
+    .testimonial-meta div {
+      line-height: 1.3;
+    }
+
+    .testimonial-meta strong {
+      display: block;
+    }
+
+    footer {
+      padding: 44px 0 34px;
+      color: var(--muted);
+      font-size: 0.95rem;
+    }
+
+    .footer-grid {
+      display: grid;
+      grid-template-columns: 1.2fr 1fr 1fr;
+      gap: 24px;
+      margin-bottom: 26px;
+    }
+
+    .footer-col h4 {
+      margin-bottom: 14px;
+      font-size: 1rem;
+      color: var(--text);
+    }
+
+    .footer-list {
+      list-style: none;
+      display: grid;
+      gap: 10px;
+    }
+
+    .footer-list a {
+      color: var(--muted);
+      text-decoration: none;
+    }
+
+    .footer-list a:hover {
+      color: var(--text);
+    }
+
+    @media (max-width: 960px) {
+      .hero {
+        grid-template-columns: 1fr;
+      }
+
+      .fleet-grid,
+      .features,
+      .testimonial-grid,
+      .footer-grid,
+      .form-grid,
+      .booking-layout {
+        grid-template-columns: 1fr;
+      }
+
+      .stats {
+        grid-template-columns: 1fr;
+      }
+
+      .card-meta {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 12px;
+      }
+    }
+
+    @media (max-width: 640px) {
+      header {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      nav {
+        gap: 14px;
+        justify-content: flex-start;
+      }
+
+      .hero-actions {
+        flex-direction: column;
+        align-items: stretch;
+      }
+
+      .booking-submit {
+        flex-direction: column;
+        align-items: stretch;
+      }
+
+      .booking-submit .btn {
+        width: 100%;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="page">
+    <header>
+      <a href="#top" class="brand"><span style="display:inline-flex;align-items:center;gap:8px;"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><circle cx="12" cy="12" r="10" fill="#2563eb"/><path d="M6 15L8 10H16L18 15H16" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><path d="M8 15V18H10V15" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><path d="M14 15V18H16V15" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><path d="M10 10V6H14V10" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg><span style="display:flex;flex-direction:column;line-height:1.1;"><strong style="font-weight:700;">DriveBharat</strong><small style="font-size:0.85rem;color:var(--muted);margin-top:2px;">Luxury Rentals India</small></span></span></a>
+      <nav>
+        <a href="#fleet">Fleet</a>
+        <a href="#booking">Booking</a>
+        <a href="#features">Why Choose Us</a>
+        <a href="#reviews">Reviews</a>
+      </nav>
+    </header>
+
+    <section class="hero" id="top">
+      <div class="hero-copy reveal">
+        <div class="eyebrow">Trusted car rental in India</div>
+        <h1 class="hero-title">Your next ride, ready anywhere in India.</h1>
+        <p class="hero-subtitle">Transparent pricing, convenient pick-up points, and a reliable fleet for city drives, weekend getaways, and long-distance journeys.</p>
+        <div class="hero-actions">
+          <a href="#booking" class="btn btn-primary">Book Your Ride</a>
+          <a href="#fleet" class="btn btn-secondary">Browse Vehicles</a>
+        </div>
+
+        <div class="stats">
+          <div class="stat reveal delay-1">
+            <strong>10K+</strong>
+            Happy customers
+          </div>
+          <div class="stat reveal delay-2">
+            <strong>120+</strong>
+            Vehicles available
+          </div>
+          <div class="stat reveal delay-3">
+            <strong>24/7</strong>
+            Support & roadside help
+          </div>
+        </div>
+      </div>
+
+      <div class="hero-visual reveal">
+        <img src="https://images.unsplash.com/photo-1525609004556-c46c7d6cf023?auto=format&fit=crop&w=1200&q=90" alt="Luxury car rental in India" />
+      </div>
+    </section>
+
+    <section class="section" id="fleet">
+      <h2 class="section-title">Our Fleet</h2>
+      <p class="section-subtitle">Choose from compact city cars, luxury sedans, SUVs, and vans. Every vehicle is inspected before every rental to ensure the best experience.</p>
+      <div class="fleet-grid">
+        <article class="card reveal">
+          <img src="https://images.unsplash.com/photo-1511919884226-fd3cad34687c?auto=format&fit=crop&w=800&q=80" alt="Indian compact luxury hatchback" />
+          <div class="card-body">
+            <h3 class="card-title">Compact Hatchback</h3>
+            <p class="card-text">Perfect for city travel and easy parking with great fuel economy.</p>
+            <div class="card-meta">
+              <span>₹3,999 / day</span>
+              <button class="btn btn-secondary" onclick="scrollToSection('booking')">Rent Now</button>
+            </div>
+          </div>
+        </article>
+
+        <article class="card reveal delay-1">
+          <img src="https://images.unsplash.com/photo-1503376780353-7e6692767b70?auto=format&fit=crop&w=800&q=80" alt="Indian luxury SUV rental" />
+          <div class="card-body">
+            <h3 class="card-title">Family SUV</h3>
+            <p class="card-text">Spacious seats, plenty of cargo room, and adventure-ready performance.</p>
+            <div class="card-meta">
+              <span>₹7,299 / day</span>
+              <button class="btn btn-secondary" onclick="scrollToSection('booking')">Rent Now</button>
+            </div>
+          </div>
+        </article>
+
+        <article class="card reveal delay-2">
+          <img src="https://images.unsplash.com/photo-1525609004556-c46c7d6cf023?auto=format&fit=crop&w=800&q=80" alt="Indian luxury sedan rental" />
+          <div class="card-body">
+            <h3 class="card-title">Luxury Sedan</h3>
+            <p class="card-text">Premium comfort for business trips, special occasions, or executive travel.</p>
+            <div class="card-meta">
+              <span>₹10,999 / day</span>
+              <button class="btn btn-secondary" onclick="scrollToSection('booking')">Rent Now</button>
+            </div>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section class="section" id="booking">
+      <div class="page booking-layout">
+        <div>
+          <h2 class="section-title">Reserve your car in minutes</h2>
+          <p class="section-subtitle">Fill out the quick form to lock in your preferred vehicle and schedule. You’ll receive instant confirmation and support from our rental team.</p>
+        </div>
+
+        <aside class="booking-panel reveal">
+          <h3>Booking Details</h3>
+          <form id="booking-form">
+            <div class="form-grid">
+              <div class="field">
+                <label for="pickup-location">Pick-up Location</label>
+                <input type="text" id="pickup-location" name="pickupLocation" placeholder="City, airport, or station" required>
+              </div>
+              <div class="field">
+                <label for="dropoff-location">Drop-off Location</label>
+                <input type="text" id="dropoff-location" name="dropoffLocation" placeholder="City or airport" required>
+              </div>
+              <div class="field">
+                <label for="pickup-date">Pick-up Date</label>
+                <input type="date" id="pickup-date" name="pickupDate" required>
+              </div>
+              <div class="field">
+                <label for="dropoff-date">Drop-off Date</label>
+                <input type="date" id="dropoff-date" name="dropoffDate" required>
+              </div>
+              <div class="field">
+                <label for="car-type">Car Type</label>
+                <select id="car-type" name="carType" required>
+                  <option value="Compact">Compact</option>
+                  <option value="SUV">SUV</option>
+                  <option value="Luxury">Luxury</option>
+                  <option value="Van">Van</option>
+                </select>
+              </div>
+              <div class="field">
+                <label for="extras">Extras</label>
+                <select id="extras" name="extras">
+                  <option value="None">None</option>
+                  <option value="GPS">GPS Navigation</option>
+                  <option value="Child Seat">Child Seat</option>
+                  <option value="Insurance">Insurance Coverage</option>
+                </select>
+              </div>
+            </div>
+
+            <div class="booking-submit">
+              <button type="submit" class="btn btn-primary">Confirm Booking</button>
+              <span id="booking-message" style="color: var(--success); font-weight: 600;"></span>
+            </div>
+          </form>
+        </aside>
+      </div>
+    </section>
+
+    <section class="section" id="features">
+      <h2 class="section-title">Why choose DriveWell?</h2>
+      <p class="section-subtitle">We make renting easy with flexible terms, transparent pricing, and premium vehicles maintained to the highest standard.</p>
+      <div class="features">
+        <article class="feature-card reveal">
+          <h4>Flexible rental terms</h4>
+          <p>From same-day rentals to week-long trips, choose the package that fits your schedule without hidden fees.</p>
+        </article>
+        <article class="feature-card reveal delay-1">
+          <h4>Certified safety checks</h4>
+          <p>Every car is inspected and sanitized before handover so you can drive confidently and comfortably.</p>
+        </article>
+        <article class="feature-card reveal delay-2">
+          <h4>Fast roadside support</h4>
+          <p>24/7 roadside assistance and live customer support keep you moving no matter where the road takes you.</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="section" id="reviews">
+      <h2 class="section-title">Customer Reviews</h2>
+      <p class="section-subtitle">Trusted by travelers and local drivers for prompt service, clean vehicles, and friendly support.</p>
+      <div class="testimonial-grid">
+        <article class="testimonial reveal">
+          <p>"Amazing experience from start to finish. The car felt brand new and the pickup process was smooth."</p>
+          <div class="testimonial-meta">
+            <div class="avatar">M</div>
+            <div>
+              <strong>Maria Chen</strong>
+              Business traveler
+            </div>
+          </div>
+        </article>
+        <article class="testimonial reveal delay-1">
+          <p>"Great value and helpful staff. We rented an SUV for a family trip and everyone loved the comfort."</p>
+          <div class="testimonial-meta">
+            <div class="avatar">J</div>
+            <div>
+              <strong>Jason Lee</strong>
+              Weekend getaway
+            </div>
+          </div>
+        </article>
+        <article class="testimonial reveal delay-2">
+          <p>"Easy booking, excellent support, and no surprises at checkout. I’ll rent again for my next city visit."</p>
+          <div class="testimonial-meta">
+            <div class="avatar">A</div>
+            <div>
+              <strong>Amy Parker</strong>
+              Frequent renter
+            </div>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <footer>
+      <div class="footer-grid">
+        <div class="footer-col">
+          <h4>DriveWell</h4>
+          <p>Fast, reliable car rentals with clear pricing and friendly support. Your next ride is ready.</p>
+        </div>
+        <div class="footer-col">
+          <h4>Quick links</h4>
+          <ul class="footer-list">
+            <li><a href="#fleet">Fleet</a></li>
+            <li><a href="#booking">Booking</a></li>
+            <li><a href="#features">Why Us</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Contact</h4>
+          <ul class="footer-list">
+            <li>support@drivebharat.in</li>
+            <li>+91 0000000000</li>
+            <li>Open 24/7</li>
+          </ul>
+        </div>
+      </div>
+      <div style="text-align: center; border-top: 1px solid var(--border); padding-top: 18px;">&copy; 2026 DriveBharat Car Rental. All rights reserved.</div>
+    </footer>
+  </div>
+
+  <script>
+    function scrollToSection(id) {
+      document.getElementById(id).scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
+
+    const revealElements = document.querySelectorAll('.reveal');
+    const revealObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('active');
+          revealObserver.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.12 });
+
+    revealElements.forEach(el => revealObserver.observe(el));
+
+    document.getElementById('booking-form').addEventListener('submit', function (event) {
+      event.preventDefault();
+      const message = document.getElementById('booking-message');
+      message.textContent = 'Booking request received! We will confirm shortly.';
+      setTimeout(() => {
+        message.textContent = '';
+      }, 5000);
+      event.target.reset();
+    });
+  </script>
+</body>
+</html>

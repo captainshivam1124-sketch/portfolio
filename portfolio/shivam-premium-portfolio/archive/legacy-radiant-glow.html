@@ -1,0 +1,710 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Radiant Glow Skincare</title>
+  <style>
+    :root {
+      --bg: #0e1419;
+      --surface: rgba(12, 18, 25, 0.88);
+      --text: #f8f8fa;
+      --muted: #a5afbc;
+      --accent: #ff8ab3;
+      --accent-2: #85d7ff;
+      --shadow: 0 30px 80px rgba(0, 0, 0, 0.32);
+      font-family: Inter, system-ui, sans-serif;
+      scroll-behavior: smooth;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      min-height: 100vh;
+      background: radial-gradient(circle at top, rgba(255, 138, 179, 0.15), transparent 28%),
+                  radial-gradient(circle at 80% 15%, rgba(133, 215, 255, 0.12), transparent 30%),
+                  linear-gradient(180deg, #111827 0%, #0c141b 100%);
+      color: var(--text);
+      overflow-x: hidden;
+    }
+
+    header {
+      width: 100%;
+      position: fixed;
+      top: 0;
+      left: 0;
+      z-index: 20;
+      padding: 24px 32px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      backdrop-filter: blur(14px);
+      background: rgba(6, 12, 20, 0.55);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+    }
+
+    .brand {
+      font-weight: 800;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      font-size: 0.88rem;
+      color: var(--accent);
+    }
+
+    nav a {
+      color: var(--muted);
+      margin-left: 28px;
+      text-decoration: none;
+      font-size: 0.92rem;
+      transition: color 0.25s ease;
+    }
+
+    nav a:hover {
+      color: var(--text);
+    }
+
+    main {
+      padding-top: 100px;
+    }
+
+    section {
+      min-height: 100vh;
+      padding: 92px 32px 80px;
+      display: grid;
+      place-items: center;
+      position: relative;
+    }
+
+    .hero {
+      display: grid;
+      align-items: center;
+      gap: 48px;
+      grid-template-columns: 1.2fr 0.8fr;
+      max-width: 1180px;
+      margin: 0 auto;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero-video {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      opacity: 0;
+      transition: opacity 2s ease-in-out;
+      z-index: 0;
+      transform: scale(1.18) translate(-10px, -180px);
+      filter: saturate(1.08) brightness(0.75);
+    }
+
+    .hero.ready .hero-video {
+      opacity: 1;
+    }
+
+    .hero::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(135deg, rgba(8, 12, 18, 0.75), rgba(8, 12, 18, 0.42));
+      z-index: 1;
+      pointer-events: none;
+    }
+
+    .hero-copy {
+      max-width: 580px;
+      justify-self: start;
+      align-self: center;
+      position: relative;
+      z-index: 2;
+    }
+
+    .hero-copy h1 {
+      font-size: clamp(3.2rem, 5vw, 5rem);
+      line-height: 0.94;
+      letter-spacing: -0.04em;
+      margin-bottom: 26px;
+      background: linear-gradient(110deg, #ffe3f0, #ff8ab3 58%, #c37cff);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+    }
+
+    .hero-copy p {
+      color: var(--muted);
+      font-size: 1.05rem;
+      line-height: 1.9;
+      margin-bottom: 32px;
+    }
+
+    .hero-copy .buttons {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 16px;
+    }
+
+    .btn {
+      border: none;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 16px 26px;
+      border-radius: 999px;
+      font-weight: 700;
+      transition: transform 0.28s ease, box-shadow 0.28s ease, background 0.28s ease;
+    }
+
+    .btn-primary {
+      background: linear-gradient(135deg, var(--accent), #fba9cc);
+      color: #111827;
+      box-shadow: 0 18px 48px rgba(255, 138, 179, 0.24);
+    }
+
+    .btn-secondary {
+      background: rgba(255, 255, 255, 0.08);
+      color: var(--text);
+      border: 1px solid rgba(255, 255, 255, 0.12);
+    }
+
+    .btn:hover {
+      transform: translateY(-2px);
+    }
+
+    .hero-visual {
+      position: relative;
+      display: grid;
+      place-items: center;
+      width: 100%;
+      min-height: 520px;
+      overflow: visible;
+      justify-self: center;
+      align-self: center;
+      z-index: 2;
+    }
+
+    .hero-glow {
+      position: absolute;
+      width: 360px;
+      height: 360px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(255, 138, 179, 0.45), transparent 55%);
+      filter: blur(48px);
+      top: 12%;
+      left: 14%;
+      z-index: 0;
+    }
+
+    .product-card {
+      position: relative;
+      width: 100%;
+      max-width: 420px;
+      padding: 44px 36px;
+      background: rgba(255, 255, 255, 0.06);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      border-radius: 48px;
+      box-shadow: var(--shadow);
+      backdrop-filter: blur(20px);
+      overflow: hidden;
+      z-index: 1;
+      margin-inline: auto;
+    }
+
+    .product-card::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(145deg, rgba(255,255,255,0.06), transparent 55%);
+      pointer-events: none;
+    }
+
+    .product-card img {
+      width: 100%;
+      border-radius: 30px;
+      object-fit: cover;
+      margin-bottom: 28px;
+      animation: float 8s ease-in-out infinite alternate;
+    }
+
+    .hero-photo {
+      position: absolute;
+      right: -6%;
+      top: 6%;
+      width: min(420px, 48%);
+      max-width: 420px;
+      border-radius: 36px;
+      object-fit: cover;
+      box-shadow: 0 42px 96px rgba(0,0,0,0.34);
+      animation: rise 10s ease-in-out infinite alternate;
+      transform: translateY(26px);
+      opacity: 0.92;
+      z-index: 0;
+      will-change: transform, opacity;
+    }
+
+    .hero-photo-2 {
+      position: absolute;
+      left: -8%;
+      bottom: 4%;
+      width: min(260px, 30%);
+      max-width: 280px;
+      border-radius: 32px;
+      object-fit: cover;
+      box-shadow: 0 26px 60px rgba(0,0,0,0.22);
+      animation: rise 11s ease-in-out infinite alternate;
+      transform: translateY(18px);
+      opacity: 0.88;
+      z-index: 0;
+      will-change: transform, opacity;
+    }
+
+    .hero-visual.reveal.visible .hero-photo,
+    .hero-visual.reveal.visible .hero-photo-2 {
+      transform: translateY(0);
+      opacity: 1;
+    }
+
+    .pin-image img {
+      width: 100%;
+      border-radius: 32px;
+      object-fit: cover;
+      box-shadow: 0 32px 70px rgba(0,0,0,0.28);
+      animation: drift 8s ease-in-out infinite alternate;
+    }
+
+    .product-card h2 {
+      font-size: 1.7rem;
+      margin-bottom: 14px;
+    }
+
+    .product-card span {
+      display: inline-flex;
+      margin-bottom: 20px;
+      color: var(--accent-2);
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      font-size: 0.78rem;
+    }
+
+    .product-card p {
+      color: var(--muted);
+      line-height: 1.8;
+      margin-bottom: 28px;
+    }
+
+    .product-card .feature-list {
+      display: grid;
+      gap: 16px;
+    }
+
+    .feature-pill {
+      padding: 16px 18px;
+      background: rgba(255,255,255,0.08);
+      border-radius: 22px;
+      color: #edf2f7;
+      font-size: 0.95rem;
+    }
+
+    .section-panel {
+      width: min(1120px, 100%);
+      display: grid;
+      gap: 32px;
+      grid-template-columns: 1.2fr 0.8fr;
+      align-items: center;
+    }
+
+    .section-panel h2 {
+      font-size: clamp(2.1rem, 4vw, 3rem);
+      margin-bottom: 18px;
+    }
+
+    .section-panel p {
+      color: var(--muted);
+      line-height: 1.9;
+      font-size: 1.05rem;
+    }
+
+    .image-scroll {
+      display: grid;
+      grid-template-columns: 0.95fr 1.05fr;
+      gap: 32px;
+      align-items: center;
+    }
+
+    .scroll-grid {
+      display: grid;
+      gap: 24px;
+    }
+
+    .scroll-grid img {
+      width: 100%;
+      border-radius: 32px;
+      box-shadow: 0 28px 70px rgba(0,0,0,0.22);
+      transform: translateY(32px);
+      opacity: 0;
+      transition: opacity 0.9s ease, transform 0.9s ease;
+    }
+
+    .scroll-grid img.visible {
+      transform: translateY(0);
+      opacity: 1;
+    }
+
+    .grid-cards {
+      display: grid;
+      gap: 24px;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .card {
+      border-radius: 32px;
+      padding: 28px;
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid rgba(255,255,255,0.1);
+      box-shadow: 0 24px 48px rgba(0,0,0,0.18);
+      backdrop-filter: blur(18px);
+    }
+
+    .card h3 {
+      font-size: 1.25rem;
+      margin-bottom: 12px;
+    }
+
+    .card p {
+      color: var(--muted);
+      line-height: 1.8;
+    }
+
+    .testimonial {
+      padding: 32px;
+      border-radius: 32px;
+      background: linear-gradient(180deg, rgba(255,255,255,0.08), rgba(255,255,255,0.03));
+      border: 1px solid rgba(255,255,255,0.08);
+      box-shadow: 0 24px 44px rgba(0, 0, 0, 0.16);
+    }
+
+    .testimonial p {
+      color: #e6eaf4;
+      font-size: 1.05rem;
+      line-height: 1.95;
+      margin-bottom: 24px;
+    }
+
+    .testimonial cite {
+      display: block;
+      font-size: 0.95rem;
+      color: var(--accent-2);
+      font-weight: 700;
+    }
+
+    .cta-panel {
+      width: min(900px, 100%);
+      padding: 60px 56px;
+      border-radius: 48px;
+      background: rgba(255, 255, 255, 0.08);
+      backdrop-filter: blur(24px);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      box-shadow: 0 30px 80px rgba(0,0,0,0.22);
+      text-align: center;
+    }
+
+    .cta-panel h2 {
+      font-size: clamp(2.2rem, 3vw, 3rem);
+      margin-bottom: 18px;
+    }
+
+    .cta-panel p {
+      color: var(--muted);
+      margin-bottom: 30px;
+      line-height: 1.8;
+      font-size: 1.05rem;
+    }
+
+    .reveal {
+      opacity: 0;
+      transform: translateY(36px) scale(0.98);
+      transition: opacity 0.9s ease, transform 0.9s ease;
+    }
+
+    .reveal.visible {
+      opacity: 1;
+      transform: translateY(0) scale(1);
+    }
+
+    .pin-image {
+      position: sticky;
+      top: 120px;
+    }
+
+    .hero-visual .floating-bubble {
+      position: absolute;
+      width: 74px;
+      height: 74px;
+      border-radius: 50%;
+      background: rgba(255, 255, 255, 0.1);
+      border: 1px solid rgba(255, 255, 255, 0.18);
+      filter: blur(0.6px);
+      animation: float 7s ease-in-out infinite;
+    }
+
+    .bubble-1 { top: 14%; left: 12%; }
+    .bubble-2 { bottom: 12%; right: 16%; width: 92px; height: 92px; animation-duration: 9s; }
+
+    @keyframes float {
+      0%, 100% { transform: translateY(0px); }
+      50% { transform: translateY(-14px); }
+    }
+
+    @keyframes drift {
+      0%, 100% { transform: translateY(0px) scale(1); }
+      50% { transform: translateY(-10px) scale(1.01); }
+    }
+
+    @keyframes rise {
+      0%, 100% { transform: translateY(26px); }
+      50% { transform: translateY(8px); }
+    }
+
+    .section-divider {
+      position: absolute;
+      inset: 0;
+      pointer-events: none;
+      background: radial-gradient(circle at top left, rgba(133, 215, 255, 0.08), transparent 24%),
+                  radial-gradient(circle at bottom right, rgba(255, 138, 179, 0.08), transparent 25%);
+    }
+
+    @media (max-width: 900px) {
+      .hero,
+      .section-panel,
+      .grid-cards {
+        grid-template-columns: 1fr;
+      }
+
+      .hero {
+        padding-top: 24px;
+        text-align: center;
+      }
+
+      .section {
+        padding: 84px 24px 72px;
+      }
+
+      .hero-copy {
+        justify-self: center;
+        max-width: 680px;
+      }
+
+      .hero-copy .buttons {
+        justify-content: center;
+      }
+
+      .product-card {
+        margin: 0 auto;
+      }
+    }
+
+    @media (max-width: 640px) {
+      header {
+        padding: 18px 20px;
+      }
+
+      .hero-copy h1 {
+        font-size: 3rem;
+      }
+
+      .hero-copy p,
+      .section-panel p,
+      .testimonial p,
+      .cta-panel p {
+        font-size: 1rem;
+      }
+
+      nav a {
+        margin-left: 18px;
+      }
+
+      .product-card {
+        padding: 30px 24px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="brand">LUMEA</div>
+    <nav>
+      <a href="#story">Story</a>
+      <a href="#ingredients">Ingredients</a>
+      <a href="#results">Results</a>
+      <a href="#shop">Shop</a>
+    </nav>
+  </header>
+
+  <main>
+    <section class="hero" id="home">
+      <video autoplay loop muted playsinline class="hero-video" aria-hidden="true">
+        <source src="https://storage.googleapis.com/grok-web-public/grok-imagine-horizontal-4k.mp4" type="video/mp4" />
+      </video>
+      <div class="hero-copy reveal">
+        <span>Skincare for luminous skin</span>
+        <h1>Glow Serum designed for your best skin yet</h1>
+        <p>Experience a silky, fast-absorbing glow serum with niacinamide, hyaluronic acid, and vitamin C. Crafted to hydrate, brighten, and restore the skin barrier in one elegant ritual.</p>
+        <div class="buttons">
+          <button class="btn btn-primary">Shop the Serum</button>
+          <button class="btn btn-secondary">Explore Ingredients</button>
+        </div>
+      </div>
+
+      <div class="hero-visual reveal">
+        <div class="hero-glow"></div>
+        <div class="floating-bubble bubble-1"></div>
+        <div class="floating-bubble bubble-2"></div>
+        <img class="hero-photo" src="https://images.unsplash.com/photo-1600185360819-4a2bc973eb9e?auto=format&fit=crop&w=880&q=80" alt="Glow serum dropper bottle" />
+        <div class="product-card">
+          <img src="https://images.unsplash.com/photo-1544717305-996b815c338c?auto=format&fit=crop&w=680&q=80" alt="Glow Serum bottle" />
+          <span>New Arrival</span>
+          <h2>Radiant Glow Serum</h2>
+          <p>Lightweight serum that layers beautifully with your routine to deliver visible radiance and lasting hydration.</p>
+          <div class="feature-list">
+            <div class="feature-pill">Brightening Niacinamide</div>
+            <div class="feature-pill">Hyaluronic Hydration</div>
+            <div class="feature-pill">Antioxidant Vitamin C</div>
+          </div>
+        </div>
+      </div>
+      <div class="section-divider"></div>
+    </section>
+
+    <section class="section-panel reveal" id="story">
+      <div>
+        <h2>Skin confidence from the first drop</h2>
+        <p>Every formula is crafted for sensitive, combination, and mature skin. The Glow Serum blends botanical extracts with dermatologist-backed actives for a gentle, effective daily ritual.</p>
+      </div>
+      <div class="grid-cards">
+        <div class="card">
+          <h3>Fast-absorbing texture</h3>
+          <p>Silky, non-greasy serum sinks quickly into skin without any tightness or residue.</p>
+        </div>
+        <div class="card">
+          <h3>Radiance support</h3>
+          <p>Niacinamide and vitamin C help reduce dullness and uneven tone, revealing a brighter complexion.</p>
+        </div>
+        <div class="card">
+          <h3>Barrier-friendly</h3>
+          <p>Hyaluronic acid plus soothing botanicals help maintain moisture while calming redness.</p>
+        </div>
+        <div class="card">
+          <h3>Clean beauty</h3>
+          <p>Free from parabens, sulfates, and synthetic dyes for skin that feels refreshed and restored.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section-panel reveal" id="ingredients">
+      <div class="pin-image">
+        <img src="https://images.unsplash.com/photo-1501004318641-b39e6451bec6?auto=format&fit=crop&w=800&q=80" alt="Serum ingredient" />
+      </div>
+      <div>
+        <h2>Ingredients that transform, not irritate</h2>
+        <p>From concentrated actives to hydration boosters, our formula is balanced to brighten, smooth, and replenish without disrupting your skin’s natural ecosystem.</p>
+        <div class="grid-cards">
+          <div class="card">
+            <h3>Niacinamide 5%</h3>
+            <p>Helps strengthen the skin barrier while reducing the look of pores and redness.</p>
+          </div>
+          <div class="card">
+            <h3>Hyaluronic Acid</h3>
+            <p>Delivers multi-depth hydration for plumper, softer skin that looks luminous.</p>
+          </div>
+          <div class="card">
+            <h3>Vitamin C</h3>
+            <p>Helps brighten and protect against environmental damage for a more even tone.</p>
+          </div>
+          <div class="card">
+            <h3>Centella Asiatica</h3>
+            <p>Soothes irritation and supports long-term comfort in every application.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section-panel reveal" id="gallery">
+      <div class="image-scroll">
+        <div class="scroll-grid">
+          <img class="scroll-img reveal" src="https://images.unsplash.com/photo-1512290923902-8a9f81dc236c?auto=format&fit=crop&w=800&q=80" alt="Skincare serum in glass bottle" />
+          <img class="scroll-img reveal" src="https://images.unsplash.com/photo-1542838132-92c53300491e?auto=format&fit=crop&w=800&q=80" alt="Luxury skincare product image" />
+          <img class="scroll-img reveal" src="https://media.istockphoto.com/id/2167339078/photo/pipette-with-cosmetic-gel-or-serum-close-up.jpg?s=612x612&w=0&k=20&c=fW8fmmkqvUpSALhWZxgBkGBB1C8ITcQI0LCGBQ_PlS4=" alt="Skincare serum close-up" />
+          <img class="scroll-img reveal" src="https://images.unsplash.com/photo-1544717305-996b815c338c?auto=format&fit=crop&w=800&q=80" alt="Serum product flatlay" />
+        </div>
+        <div>
+          <h2>Real product photos with scroll motion</h2>
+          <p>These product shots fill the space with real skincare visuals while animating softly as the user moves down the page.</p>
+          <div class="card">
+            <h3>Premium lifestyle imagery</h3>
+            <p>High-quality product photography adds trust and creates a stronger landing page experience.</p>
+          </div>
+          <div class="card">
+            <h3>Animated reveal</h3>
+            <p>Each image fades and lifts into place when it enters the viewport for a smooth scroll story.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section-panel reveal" id="results">
+      <div>
+        <h2>Results your skin will feel</h2>
+        <p>Scroll through the product story and discover how the Glow Serum delivers visible radiance, smoother texture, and renewed hydration.</p>
+        <div class="testimonial">
+          <p>"My skin has never looked so luminous. After a week, I noticed reduced redness and a smoother, glowy finish that lasts all day."</p>
+          <cite>— Maya G.</cite>
+        </div>
+      </div>
+      <div class="grid-cards">
+        <div class="card">
+          <h3>98% noticed brighter skin</h3>
+          <p>Based on a consumer trial after 14 days of daily use.</p>
+        </div>
+        <div class="card">
+          <h3>95% said texture felt softer</h3>
+          <p>Clinically evaluated after continued nightly application.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="cta-panel reveal" id="shop">
+      <h2>Ready to glow every morning?</h2>
+      <p>Bring the serum into your routine and see the difference of skin that feels nourished, luminous, and balanced.</p>
+      <button class="btn btn-primary">Buy Glow Serum</button>
+    </section>
+  </main>
+
+  <script>
+    const observers = document.querySelectorAll('.reveal');
+    const config = {
+      threshold: 0.2,
+    };
+
+    const revealObserver = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+          revealObserver.unobserve(entry.target);
+        }
+      });
+    }, config);
+
+    observers.forEach((el) => revealObserver.observe(el));
+
+    window.addEventListener('load', () => {
+      document.querySelector('.hero')?.classList.add('ready');
+    });
+  </script>
+</body>
+</html>
